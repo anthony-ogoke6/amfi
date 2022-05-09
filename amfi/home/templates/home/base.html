@@ -1,0 +1,250 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!-- <html lang="zxx"> -->
+<html>
+<head>
+	<!--====== Required meta tags ======-->
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<!--====== Title ======-->
+	<title>{% block title %} AMFI || {% endblock %}</title>
+
+	<!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{% static 'assets/img/amfi.png' %}" type="img/png" />
+	<!--====== Animate Css ======-->
+	<link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+	<!--====== Bootstrap css ======-->
+	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+	<!--====== Fontawesome css ======-->
+	<link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}" />
+	<!--====== Flaticon css ======-->
+	<link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}" />
+	<!--====== Slick Css ======-->
+	<link rel="stylesheet" href="{% static 'assets/css/slick.min.css' %}" />
+	<!--====== Lity Css ======-->
+	<link rel="stylesheet" href="{% static 'assets/css/lity.min.css' %}" />
+	<!--====== Main css ======-->
+	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	<!--====== Responsive css ======-->
+	<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+
+
+
+	<style>
+		.hero-area-one .hero-text .title {
+		  font-size: 70px;
+		}
+		.site-footer.with-footer-bg .footer-content-area {
+		  background-image: url({% static 'assets/img/footer-bg.png' %});
+		  /*background-image: none;*/
+		}
+	</style>
+</head>
+
+<body>
+	<!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+
+	<!--====== Preloader ======-->
+	<div id="preloader">
+		<div id="loading-center">
+			<div id="loading-center-absolute">
+				<div class="object" id="object_one"></div>
+				<div class="object" id="object_two"></div>
+				<div class="object" id="object_three"></div>
+				<div class="object" id="object_four"></div>
+			</div>
+		</div>
+	</div>
+
+
+	{% block nav %}
+
+	{% endblock %}
+
+
+	{% block jumbotron %}
+    {% endblock %}
+
+    {% block category %}
+    {% endblock %}
+
+
+    {% block about %}
+    {% endblock %}
+
+    {% block contact %}
+    {% endblock %}
+
+	{% block blog %}
+    {% endblock %}
+
+    {% block projectdetails %}
+    {% endblock %}
+
+    {% block training %}
+    {% endblock %}
+
+    {% block faq %}
+    {% endblock %}
+
+
+    {% block projects %}
+    {% endblock %}
+
+    {% block do %}
+    {% endblock %}
+
+    {% block team %}
+    {% endblock %}
+
+    {% block counter %}
+    {% endblock %}
+
+
+    {% block testimonials %}
+    {% endblock %}
+
+    {% block emergency %}
+    {% endblock %}
+
+	
+	<!--====== Footer Start ======-->
+	<footer class="site-footer with-footer-cta with-footer-bg">
+		<div class="footer-cta">
+			<div class="container">
+				<div class="row justify-content-lg-between justify-content-center align-items-center">
+					<div class="col-lg-7 col-md-8 col-sm-10">
+						<span class="cta-tagline">5 Years Of Experience In AMFI</span>
+						<h3 class="cta-title">Raise Hand to Promote Best Projects</h3>
+					</div>
+					<!-- <div class="col-lg-auto col-md-6">
+						<a href="contact.html" class="main-btn bordered-btn bordered-white mt-md-30">
+							Promote Your Projects <i class="far fa-arrow-right"></i>
+						</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<div class="footer-content-area">
+			<div class="container">
+				<div class="footer-widgets">
+					<div class="row justify-content-between">
+						<div class="col-xl-3 col-lg-4 col-md-6">
+							<div class="widget about-widget">
+								<div class="footer-logo">
+									<img src="{% static 'assets/img/amfi.png' %}" alt="AMFI" style="width:100px;">
+								</div>
+								<p>
+									Empowering Lives...
+								</p>
+								<div class="newsletter-form">
+									<h5 class="form-title">Join Newsletters</h5>
+									<form action="#">
+										<input type="text" placeholder="Email Address">
+										<button type="submit"><i class="far fa-arrow-right"></i></button>
+									</form>
+								</div>
+							</div>
+						</div>
+											<div class="col-lg-2 col-md-5 col-sm-6">
+							<div class="widget nav-widget">
+								<h4 class="widget-title">Our Projects</h4>
+								<ul>
+									<li><a href="project-1.html">Car Wash</a></li>
+									<li><a href="project-2.html">Chips Making Factory</a></li>
+									<li><a href="project-1.html">Fashion School</a></li>
+									<!-- <li><a href="project-3.html">Web Development</a></li> -->
+									<!-- <li><a href="project-2.html">Project</a></li>
+									<li><a href="project-1.html">Video & Movies</a></li> -->
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="widget nav-widget">
+								<h4 class="widget-title">Support</h4>
+								<ul>
+									<li><a href="{% url 'about:about' %}">Privacy Policy</a></li>
+									<!-- <li><a href="{% url 'about:about' %}">Conditions</a></li> -->
+									<!-- <li><a href="company-overview.html">Company</a></li> -->
+									<li><a href="{% url 'faq:faq' %}">FAQ</a></li>
+									<li><a href="{% url 'contact:contact' %}">Contact Us</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-auto col-md-5 col-sm-8">
+							<div class="widget contact-widget">
+								<h4 class="widget-title">Contact Us</h4>
+								<ul class="info-list">
+									<li>
+										<span class="icon"><i class="far fa-phone"></i></span>
+										<span class="info">
+											<span class="info-title">Phone Number</span>
+											<a href="#">+234(806) 079 7056</a>
+										</span>
+									</li>
+									<li>
+										<span class="icon"><i class="far fa-envelope-open"></i></span>
+										<span class="info">
+											<span class="info-title">Email Address</span>
+											<a href="#">amfist1982@gmail.com</a>
+										</span>
+									</li>
+									<li>
+										<span class="icon"><i class="far fa-map-marker-alt"></i></span>
+										<span class="info">
+											<span class="info-title">Locations</span>
+											<a href="#">St. Augustines Catholic Church,</a><br>
+											<a href="#">Ikorodu, Lagos, Nigeria.</a>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="copyright-area">
+					<div class="row flex-md-row-reverse">
+						<div class="col-md-6">
+							<ul class="social-icons">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<p class="copyright-text">© 2021 <a href="#">AMFI</a>. All Rights Reserved</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--====== Footer End ======-->
+
+	<!--====== jquery js ======-->
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<!--====== Bootstrap js ======-->
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<!--====== Inview js ======-->
+	<script src="{% static 'assets/js/jquery.inview.min.js' %}"></script>
+	<!--====== Slick js ======-->
+	<script src="{% static 'assets/js/slick.min.js' %}"></script>
+	<!--====== Lity js ======-->
+	<script src="{% static 'assets/js/lity.min.js' %}"></script>
+	<!--====== Wow js ======-->
+	<script src="{% static 'assets/js/wow.min.js' %}"></script>
+	<!--====== Main js ======-->
+	<script src="{% static 'assets/js/main.js' %}"></script>
+
+	
+</body>
+
+</html>

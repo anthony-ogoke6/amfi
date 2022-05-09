@@ -1,0 +1,178 @@
+
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+
+{% block title %}
+{{ block.super }} About
+{% endblock %}
+
+
+
+	{% block nav %}
+
+	{% include 'about/header_about.html' %}
+
+	{% endblock %}
+
+
+{% block jumbotron %}
+
+	<!--====== Page Title Start ======-->
+	<section class="page-title-area">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-8">
+					<h1 class="page-title">Project Details</h1>
+				</div>
+				<div class="col-auto">
+					<ul class="page-breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li>Project Details</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Page Title End ======-->
+
+{% endblock %}
+
+
+
+{% block projectdetails %}
+	<!--====== Project Details Area Start ======-->
+	<section class="project-details-area section-gap-extra-bottom">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-lg-6 col-md-10">
+					<div class="project-thumb mb-md-50">
+						<img src="{% static 'assets/img/project/project-details.jpg' %}" alt="Image">
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="project-summery">
+						<a href="#" class="category">Headphone</a>
+						<h3 class="project-title">
+							Kodak PIXPRO Friendly Zoom FZ53-RD 1605MP Digital Camera
+						</h3>
+
+						<div class="meta">
+							<div class="author">
+								<img src="{% static 'assets/img/author-thumbs/03.jpg' %}" alt="Thumb">
+								<a href="#">James W. Barrows</a>
+							</div>
+							<a href="#" class="date"><i class="far fa-calendar-alt"></i>25 Feb 2021</a>
+						</div>
+						<div class="project-funding-info">
+							<div class="info-box">
+								<span>3.5M NGN</span>
+								<span class="info-title">Required</span>
+							</div>
+							<!-- <div class="info-box">
+								<span>9</span>
+								<span class="info-title">Backers</span>
+							</div> -->
+							<!-- <div class="info-box">
+								<span>29</span>
+								<span class="info-title">Days Left</span>
+							</div> -->
+						</div>
+						<div class="project-raised clearfix">
+							<div class="d-flex align-items-center justify-content-between">
+								<div class="raised-label">Raised 1.5M NGN</div>
+								<div class="percent-raised">60%</div>
+							</div>
+							<div class="stats-bar" data-value="79">
+								<div class="bar-line"></div>
+							</div>
+						</div>
+						<div class="project-form">
+							<form action="#">
+								<ul class="donation-amount">
+									<li>5k</li>
+									<li>50k</li>
+									<li>180k</li>
+									<li>500k</li>
+									<li>1M</li>
+								</ul>
+								<button type="submit" class="main-btn">Donate Now <i class="far fa-arrow-right"></i></button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="project-details-tab">
+				
+						<div class="tab-content" id="projectTabContent">
+							<div class="tab-pane fade show active" id="description" role="tabpanel">
+								<div class="row justify-content-center">
+									<div class="col-lg-8">
+										<div class="description-content">
+											<h4 class="description-title">Best Smart Headphone In 2021</h4>
+											<p>
+												Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corp oris suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illume.
+											</p>
+											<img class="mt-50 mb-50" src="{% static 'assets/img/project/project-details-2.jpg' %}" alt="Image">
+											<h4 class="description-title">Why Donate Our Products</h4>
+											<p>
+												Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi temporadunt ut labore et dolore magnam aliquam quaerat voluptate enim ad minima veniam suscipit
+											</p>
+											<!-- <ul class="description-list">
+												<li>Standard Lorem Sum Passage Used</li>
+												<li>Build A Music Manager With Nuxt</li>
+												<li>A Foldable Web Actually Mean</li>
+												<li>Upcoming Web Design Conferences</li>
+											</ul> -->
+											<!-- <p>
+												But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes,
+											</p> -->
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-6 col-sm-10">
+										<div class="rewards-box mt-md-50">
+											<h4 class="title">Rewards</h4>
+											<img src="{% static 'assets/img/project/project-rewards.jpg' %}" alt="Image">
+											<span class="rewards-count"><span>$530</span> or More</span>
+											<p>
+												But must explain to you how all this mistaken idea of denouncing plasue and praising pain was born
+											</p>
+											<div class="delivery-date">
+												<span>25 Mar 20210</span>
+												Estimated Delivery
+											</div>
+											<ul class="rewards-info">
+												<li>
+													<i class="far fa-user-circle"></i>5 Backers
+												</li>
+												<li>
+													<i class="far fa-trophy-alt"></i>29 Rewards Left
+												</li>
+											</ul>
+											<a href="events.html" class="main-btn">Select Rewards <i class="far fa-arrow-right"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="update" role="tabpanel">
+								Update
+							</div>
+							<div class="tab-pane fade" id="bascker-list" role="tabpanel">
+								Bascker List
+							</div>
+							<div class="tab-pane fade" id="reviews" role="tabpanel">
+								Reviews
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Project Details Area End ======-->
+{% endblock %}
+
+
