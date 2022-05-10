@@ -25,6 +25,7 @@ import hmac
 import hashlib
 import json
 from django.views.decorators.csrf import csrf_exempt
+from .models import *
 
 
 import logging
@@ -35,7 +36,11 @@ logger = logging.getLogger(__name__)
 
 
 def about(request):
-	return render(request, 'about/about.html')
+	about = About.objects.all()
+	context = {
+        'about': about,
+        }
+	return render(request, 'about/about.html', context)
 
 
 

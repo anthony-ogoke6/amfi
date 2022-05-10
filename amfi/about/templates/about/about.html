@@ -51,20 +51,43 @@
 								<i class="fas fa-plus"></i> About us
 								<span class="heading-shadow-text">About Us</span>
 							</span>
-							<h2 class="title">We Help How To Improve lives</h2>
+							{% if about.0 %}
+							<h2 class="title">{{about.0.title}}</h2>
+					        {% else %}
+					        <h2 class="title">We Help Fight Poverty By Empowering Lives</h2>
+					        {% endif %}
 						</div>
+
+						
+						{% if about.0 %}
 						<p>
-							AMFI was setup to assist the poor and vulnerable to carry out Catholic relief service as we act to promote human development by responding to major emergencies, fighting poverty and nuturing peaceful and just society.
+						{{about.0.body|safe}}
 						</p>
+						{% else %}
+						<p>
+							AMFI was setup to assist the poor and vulnerable to carry out Catholic relief service as we act to promote human development by responding to major emergencies, fighting poverty and nuturing peaceful and just society....
+						</p>
+						{% endif %}
+
 						<ul class="check-list mt-30">
 							<!-- <li class="wow fadeInUp" data-wow-delay="0s">
 								<h5 class="title">Highest Success Rates</h5>
 								<p>Quis autem vel eum iure reprehenderit quin</p>
 							</li> -->
+							{% if about.0 %}
+							<li class="wow fadeInUp" data-wow-delay="0.1s">
+								<h5 class="title">
+								{{about.0.sub_title}}
+								</h5>
+								<p>{{about.0.sub_body|safe}}</p>
+								</li>
+								{% else %}
+
 							<li class="wow fadeInUp" data-wow-delay="0.1s">
 								<h5 class="title">Raise Funds With AMFI</h5>
 								<p>Join us in empowering lives</p>
 							</li>
+							{% endif %}
 							<!-- <li class="wow fadeInUp" data-wow-delay="0.2s">
 								<h5 class="title">Millions in Funding</h5>
 								<p>Accusan tium dolore dantiumy totam apeam</p>
@@ -74,6 +97,18 @@
 				</div>
 				<div class="col-xl-7 col-lg-8 col-md-10">
 					<div class="about-gallery wow fadeInRight">
+
+						{% if about.0 %}
+						<div class="img-one">
+							<img src="{{ about.0.image_510_by_580.url }}" alt="Image">
+						</div>
+						<div class="img-two wow fadeInUp">
+							<img src="{{ about.0.image_290_by_330.url }}" alt="Image" style="width: 290px;height: 330px;">
+						</div>
+						<div class="pattern">
+							<img src="{% static 'assets/img/about/about-gallery-pattern.png' %}" alt="Pattern">
+						</div>
+						{% else %}
 						<div class="img-one">
 							<img src="{% static 'assets/img/about/about-gallery-1.jpg' %}" alt="Image">
 						</div>
@@ -83,6 +118,8 @@
 						<div class="pattern">
 							<img src="{% static 'assets/img/about/about-gallery-pattern.png' %}" alt="Pattern">
 						</div>
+						{% endif %}
+						
 					</div>
 				</div>
 			</div>

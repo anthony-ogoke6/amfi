@@ -35,12 +35,12 @@ logger = logging.getLogger(__name__)
 
 
 def emergency(request):
-	return render(request, 'contact/contact.html')
+	return render(request, 'emergency/emergency.html')
 
 
 
 def emergency_details(request):
-	return render(request, 'contact/contact.html')
+	return render(request, 'emergency/emergency.html')
 
 
 

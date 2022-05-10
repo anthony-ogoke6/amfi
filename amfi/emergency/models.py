@@ -23,7 +23,7 @@ class PublishedManager(models.Manager):
 
 
 
-class Project(models.Model):
+class Emergency(models.Model):
     objects = models.Manager()      #Our default Manager
     published = PublishedManager()  #Our Custom Model Manager
 

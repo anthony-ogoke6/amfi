@@ -27,7 +27,7 @@
 			<div class="container">
 				<div class="navbar-inner">
 					<div class="site-logo">
-						<a href="index.html"><img src="{% static 'assets/img/amfi.png' %}" alt="AMFI" style="width: 70px;"></a>
+						<a href="{% url 'home:home' %}"><img src="{% static 'assets/img/amfi.png' %}" alt="AMFI" style="width: 70px;"></a>
 					</div>
 					<div class="nav-menu">
 						<ul>
@@ -99,7 +99,7 @@
 		</div>
 		<div class="mobile-menu-panel">
 			<div class="panel-logo">
-				<a href="index.html"><img src="{% static 'assets/img/amfi.png' %}" alt="AMFI" style="width: 70px;"></a>
+				<a href="{% url 'home:home' %}"><img src="{% static 'assets/img/amfi.png' %}" alt="AMFI" style="width: 70px;"></a>
 			</div>
 			<ul class="panel-menu">
 				{% url 'home:home' as home %}

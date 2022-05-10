@@ -30,12 +30,10 @@ class Team(models.Model):
         ('draft','Draft'),
         ('published','Published'),
     )
-    full_name    =      models.CharField(max_length=400)
-    designation   =      models.CharField(max_length=200)
-    image_370_by_410               =       models.ImageField(blank=True, null=True)
-    testimony    =      models.TextField(blank=True, null=True)
-    rating          =       models.PositiveIntegerField(default=0)
-    status              	=       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
+    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
+    full_name           =       models.CharField(max_length=400)
+    designation         =       models.CharField(max_length=200)
+    image_370_by_410    =       models.ImageField(blank=True, null=True)
     created             =       models.DateTimeField(auto_now_add=True)
     updated             =       models.DateTimeField(auto_now=True)
 
