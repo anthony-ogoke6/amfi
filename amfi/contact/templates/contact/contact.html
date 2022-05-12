@@ -61,7 +61,7 @@
                         </div>
                             {% if contact.0.description %}
                             <p>
-                            {{ contact.0.description }}
+                            {{ contact.0.description|safe }}
                             </p>
                             {% else %}
                             <p>
