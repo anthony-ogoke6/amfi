@@ -118,7 +118,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.5s">
+				<!-- <div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.5s">
 					<div class="fancy-box-item mt-30">
 						<div class="icon">
 							<a href="https://www.flaticon.com/free-icons/catering" title="catering icons"></a>
@@ -129,7 +129,7 @@
 							<p>Cake, Chips & Chinchin Making</p>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
@@ -155,9 +155,15 @@
 							</span>
 							<!-- <h2 class="title">Why Choose Us</h2> -->
 						</div>
+						{% if about.0 %}
+						<p>
+						{{about.0.body|safe}}
+						</p>
+						{% else %}
 						<p>
 							AMFI was setup to assist the poor and vulnerable to carry out Catholic relief service as we act to promote human development by responding to major emergencies, fighting poverty and nuturing peaceful and just society.
 						</p>
+						{% endif %}
 						<div class="author-note wow fadeInUp">
 							<ul>
 								<!-- <li><i class="far fa-check"></i> Non-Profite Crowdfunding Agency</li> -->
@@ -167,7 +173,7 @@
 								<div class="author-img">
 									<img src="{% static 'assets/img/author-thumbs/01.png' %}" alt="Image">
 								</div>
-								<h5 class="name">Mrs. Doralis Ugbobuaku Ihekerem</h5>
+								<h5 class="name">Princess Doralis Ugbobuaku Ihekerem</h5>
 								<span class="title">Chairperson</span>
 							</div>
 						</div>
@@ -180,7 +186,7 @@
 	{% endblock %}
 
 
-    {% block projects %}
+    {% block training %}
 
 	<!--====== Project Section Start ======-->
 	<section class="project-section project-section-extra-gap secondary-bg">
@@ -193,20 +199,25 @@
 				<h2 class="title">Explore Our Projects</h2>
 			</div>
 			<div class="row project-slider-one project-items project-style-one no-shadow">
+				{% if training %}
+				{% for i in training %}
 				<div class="col">
 					<div class="project-item">
-						<div class="thumb" style="background-image: url({% static 'assets/img/project/project-grid-01.png' %});"></div>
+						<div class="thumb" style="background-image: url({{ i.image_570_by_640.url }});"></div>
 						<div class="content">
 							<div class="cats">
-								<a href="#">Cake Making Department</a>
+
+								<a href="{{ i.get_absolute_url }}">Training</a>
+								}
 							</div>
+							
+							<h2 class="title">
+								<a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
+							</h2>
 							<div class="author">
-								<img src="{% static 'assets/img/author-thumbs/01.jpg' %}" alt="Thumb">
-								<a href="#">Mrs. Sandra Domino</a>
+								<!-- <img src="" alt="Thumb"> -->
+								<a href="{{ i.get_absolute_url }}">Facilitator: {{ i.facilitator }}</a>
 							</div>
-							<h5 class="title">
-								<a href="#">Best Cake Making Tutor in 2021/2022.</a>
-							</h5>
 							<!-- <div class="project-stats">
 								<div class="stats-value">
 									<span class="value-title">Raised <span class="value">5M NGN</span></span>
@@ -216,199 +227,12 @@
 									<div class="bar-line"></div>
 								</div>
 							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
+							<span class="date"><i class="far fa-calendar-alt"></i> {{ i.created|date:"D, d M Y" }}</span>
 						</div>
 					</div>
 				</div>
-                <div class="col">
-					<div class="project-item">
-						<div class="thumb" style="background-image: url({% static 'assets/img/project/project-grid-02.png' %});"></div>
-						<div class="content">
-							<div class="cats">
-								<a href="#">Sound Engineering</a>
-							</div>
-							<div class="author">
-								<img src="{% static 'assets/img/author-thumbs/02.jpg' %}" alt="Thumb">
-								<a href="#">Mr. Benard Siwoku</a>
-							</div>
-							<h5 class="title">
-								<a href="#">Understanding the Engineering behinds Sounds.</a>
-							</h5>
-							<!-- <div class="project-stats">
-								<div class="stats-value">
-									<span class="value-title">Raised <span class="value">1.5M NGN</span></span>
-									<span class="stats-percentage">87%</span>
-								</div>
-								<div class="stats-bar" data-value="87">
-									<div class="bar-line"></div>
-								</div>
-							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="project-item">
-						<div class="thumb" style="background-image: url({% static 'assets/img/project/project-grid-03.png' %});"></div>
-						<div class="content">
-							<div class="cats">
-								<a href="#">Rev Fr. Livinus.</a>
-							</div>
-							<div class="author">
-								<img src="{% static 'assets/img/author-thumbs/03.jpg' %}" alt="Thumb">
-								<a href="#">Parish Priest</a>
-							</div>
-							<h5 class="title">
-								<a href="project-details.html">Grow in the vineyard of our Saviour, Lord Jesus Christ.</a>
-							</h5>
-							<!-- <div class="project-stats">
-								<div class="stats-value">
-									<span class="value-title">Raised of <span class="value">$59,689</span></span>
-									<span class="stats-percentage">85%</span>
-								</div>
-								<div class="stats-bar" data-value="85">
-									<div class="bar-line"></div>
-								</div>
-							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="project-item">
-						<div class="thumb" style="background-image: url({% static 'assets/img/project/project-grid-04.png' %});"></div>
-						<div class="content">
-							<div class="cats">
-								<a href="#">Acting Department</a>
-							</div>
-							<div class="author">
-								<img src="{% static 'assets/img/author-thumbs/01.jpg' %}" alt="Thumb">
-								<a href="#">Mr Steven</a>
-							</div>
-							<h5 class="title">
-								<a href="project-details.html">Grow as a Professional Actor/Actress.</a>
-							</h5>
-							<!-- <div class="project-stats">
-								<div class="stats-value">
-									<span class="value-title">Raised <span class="value">Nill</span></span>
-									<span class="stats-percentage">83%</span>
-								</div>
-								<div class="stats-bar" data-value="83">
-									<div class="bar-line"></div>
-								</div>
-							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="project-item">
-						<div class="thumb" style="background-image: url({% static 'assets/img/project/project-grid-05.png' %});"></div>
-						<div class="content">
-							<div class="cats">
-								<a href="#">Agah Ongoing Project</a>
-							</div>
-							<div class="author">
-								<img src="{% static 'assets/img/author-thumbs/02.jpg' %}" alt="Thumb">
-								<a href="#">Mrs Dorallis</a>
-							</div>
-							<h5 class="title">
-								<a href="project-details.html">Chips Making Factory.</a>
-							</h5>
-							<!-- <div class="project-stats">
-								<div class="stats-value">
-									<span class="value-title">Raised <span class="value">300k NGN</span></span>
-									<span class="stats-percentage">93%</span>
-								</div>
-								<div class="stats-bar" data-value="93">
-									<div class="bar-line"></div>
-								</div>
-							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="project-item">
-						<div class="thumb" style="background-image: url({% static 'assets/img/project/project-grid-06.png' %});"></div>
-						<div class="content">
-							<div class="cats">
-								<a href="#">AMFI Award</a>
-							</div>
-							<div class="author">
-								<img src="{% static 'assets/img/author-thumbs/03.jpg' %}" alt="Thumb">
-								<a href="#">AMFI Committee</a>
-							</div>
-							<h5 class="title">
-								<a href="project-details.html">AMFI Awards of Excellence 2019.</a>
-							</h5>
-							<!-- <div class="project-stats">
-								<div class="stats-value">
-									<span class="value-title">Raised of <span class="value">$59,689</span></span>
-									<span class="stats-percentage">70%</span>
-								</div>
-								<div class="stats-bar" data-value="70">
-									<div class="bar-line"></div>
-								</div>
-							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="project-item">
-						<div class="thumb" style="background-image: url({% static 'assets/img/project/project-grid-07.png' %});"></div>
-						<div class="content">
-							<div class="cats">
-								<a href="#">Car Wash Project</a>
-							</div>
-							<div class="author">
-								<img src="{% static 'assets/img/author-thumbs/01.jpg' %}" alt="Thumb">
-								<a href="#">Mr John Iro</a>
-							</div>
-							<h5 class="title">
-								<a href="project-details.html">Car Washing centre for parishioners.</a>
-							</h5>
-							<!-- <div class="project-stats">
-								<div class="stats-value">
-									<span class="value-title">Raised <span class="value">$59,689</span></span>
-									<span class="stats-percentage">81%</span>
-								</div>
-								<div class="stats-bar" data-value="81">
-									<div class="bar-line"></div>
-								</div>
-							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-						</div>
-					</div>
-				</div>
-                <div class="col">
-					<div class="project-item">
-						<div class="thumb" style="background-image: url({% static 'assets/img/project/project-grid-08.png' %});"></div>
-						<div class="content">
-							<div class="cats">
-								<a href="#">Video Editing Department</a>
-							</div>
-							<div class="author">
-								<img src="{% static 'assets/img/author-thumbs/02.jpg' %}" alt="Thumb">
-								<a href="#">Mr John Viyon</a>
-							</div>
-							<h5 class="title">
-								<a href="project-details.html">Learn the process of making Professional Photos and videos.</a>
-							</h5>
-							<!-- <div class="project-stats">
-								<div class="stats-value">
-									<span class="value-title">Raised of <span class="value">$59,689</span></span>
-									<span class="stats-percentage">73%</span>
-								</div>
-								<div class="stats-bar" data-value="73">
-									<div class="bar-line"></div>
-								</div>
-							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-						</div>
-					</div>
-				</div>
+				{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 	</section>
@@ -440,27 +264,13 @@
 						<div class="testimonial-author-boxes wow fadeInUp" data-wow-delay="0.2s">
 							<h6>Most Popular Clients</h6>
 							<ul class="author-images">
-								<li data-tooltip="true" data-placement="top" data-original-title="Donald L. Juarez">
-									<a href="#"><img src="{% static 'assets/img/author-thumbs/01.jpg' %}" alt="user one"></a>
+								{% if testimonials %}
+                				{% for i in testimonials %}
+								<li data-tooltip="true" data-placement="top" data-original-title="{{ i.full_name }}">
+									<a href="#"><img src="{{ i.image_50_by_50.url }}" alt="{{ i.full_name }}" style="width: 50px; height: 50px;"></a>
 								</li>
-								<li data-tooltip="true" data-placement="top" data-original-title="Evan A. Ethridge">
-									<a href="#"><img src="{% static 'assets/img/author-thumbs/02.jpg' %}" alt="user one"></a>
-								</li>
-								<li data-tooltip="true" data-placement="top" data-original-title="Donald L. Lewis">
-									<a href="#"><img src="{% static 'assets/img/author-thumbs/03.jpg' %}" alt="user one"></a>
-								</li>
-								<li data-tooltip="true" data-placement="top" data-original-title="Marcus L. Duncan">
-									<a href="#"><img src="{% static 'assets/img/author-thumbs/04.jpg' %}" alt="user one"></a>
-								</li>
-								<li data-tooltip="true" data-placement="top" data-original-title="Evan A. Ethridge">
-									<a href="#"><img src="{% static 'assets/img/author-thumbs/05.jpg' %}" alt="user one"></a>
-								</li>
-								<li data-tooltip="true" data-placement="top" data-original-title="M. Jon Doe">
-									<a href="#"><img src="{% static 'assets/img/author-thumbs/06.jpg' %}" alt="user one"></a>
-								</li>
-								<li data-tooltip="true" data-placement="top" data-original-title="More">
-									<a href="#" class="more-icon"><i class="far fa-plus"></i></a>
-								</li>
+								{% endfor %}
+								{% endif %}
 							</ul>
 						</div>
 					</div>
@@ -468,52 +278,94 @@
 				<div class="col-xl-8 col-lg-10">
 					<div class="testimonial-boxes square-shape">
 						<div class="row  justify-content-center">
+							{% if testimonials %}
 							<div class="col-lg-6 col-md-6 col-sm-10">
 								<div class="testimonial-box-one wow fadeInUp" data-wow-delay="0s">
 									<div class="author-info">
+										{% if testimonials.0.image_50_by_50 %}
 										<div class="author-img">
-											<img src="{% static 'assets/img/author-thumbs/01.jpg' %}" alt="Thumb">
+											<img src="{{ testimonials.0.image_50_by_50.url }}" alt="{{ testimonials.0.full_name }}" style="width: 50px; height: 50px;">
 										</div>
+										{% endif %}
 										<div>
-											<h5 class="name">Mrs. Matina Soronadi</h5>
-											<p class="position">C.E.O Favour Tiger Nut</p>
+											<h5 class="name">{{ testimonials.0.full_name }}</h5>
+											<p class="position">{{ testimonials.0.designation }}</p>
 										</div>
 									</div>
 									<p class="testimonial-desc">
-										Quis autem vel eum reprehenderit quiea voluptate velit essenih lestiae conseqatur veillum dolorem
+										{{ testimonials.0.testimony|safe }}
 									</p>
 									<div class="rating-wrap">
 										<span>Rating</span>
 										<ul>
+											{% if testimonials.2.rating == 5 %}
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 4 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 3 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 2 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 1 %}
+											<li><i class="fas fa-star"></i></li>
+											{% else %}
+											<li></li>
+											{% endif %}
 										</ul>
 									</div>
+
 								</div>
 								<div class="testimonial-box-one mt-30 wow fadeInUp" data-wow-delay="0.1s">
 									<div class="author-info">
+										{% if testimonials.1.image_50_by_50 %}
 										<div class="author-img">
-											<img src="{% static 'assets/img/author-thumbs/03.jpg' %}" alt="Thumb">
+											<img src="{{ testimonials.1.image_50_by_50.url }}" alt="{{ testimonials.1.full_name }}" style="width: 50px; height: 50px;">
 										</div>
+										{% endif %}
 										<div>
-											<h5 class="name">Mr Ebuka</h5>
-											<p class="position">Fashion Designer</p>
+											<h5 class="name">{{ testimonials.1.full_name }}</h5>
+											<p class="position">{{ testimonials.1.designation }}</p>
 										</div>
 									</div>
 									<p class="testimonial-desc">
-										Quis autem vel eum reprehenderit quiea voluptate velit essenih lestiae conseqatur veillum dolorem
+										{{ testimonials.1.testimony|safe }}
 									</p>
 									<div class="rating-wrap">
 										<span>Rating</span>
 										<ul>
+											{% if testimonials.2.rating == 5 %}
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 4 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 3 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 2 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 1 %}
+											<li><i class="fas fa-star"></i></li>
+											{% else %}
+											<li></li>
+											{% endif %}
 										</ul>
 									</div>
 								</div>
@@ -521,40 +373,62 @@
 							<div class="col-lg-6 col-md-6 col-sm-10">
 								<div class="testimonial-box-one mt-30 wow fadeInUp" data-wow-delay="0.2s">
 									<div class="author-info">
+										{% if testimonials.2.image_50_by_50 %}
 										<div class="author-img">
-											<img src="{% static 'assets/img/author-thumbs/02.jpg' %}" alt="Thumb">
+											<img src="{{ testimonials.2.image_50_by_50.url }}" alt="{{ testimonials.2.full_name }}" style="width: 50px; height: 50px;">
 										</div>
+										{% endif %}
 										<div>
-											<h5 class="name">Mr Emeka</h5>
-											<p class="position">C.E.O Look Good In A classic Way</p>
+											<h5 class="name">{{ testimonials.2.full_name }}</h5>
+											<p class="position">{{ testimonials.2.designation }}</p>
 										</div>
 									</div>
 									<p class="testimonial-desc">
-										Quis autem vel eum reprehenderit quiea voluptate velit essenih lestiae conseqatur veillum dolorem
+										{{ testimonials.2.testimony|safe }}
 									</p>
 									<div class="rating-wrap">
 										<span>Rating</span>
 										<ul>
+											{% if testimonials.2.rating == 5 %}
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
 											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 4 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 3 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 2 %}
+											<li><i class="fas fa-star"></i></li>
+											<li><i class="fas fa-star"></i></li>
+											{% elif testimonials.2.rating == 1 %}
+											<li><i class="fas fa-star"></i></li>
+											{% else %}
+											<li></li>
+											{% endif %}
 										</ul>
 									</div>
 								</div>
-								<div class="testimonial-box-one mt-30 wow fadeInUp" data-wow-delay="0.3s">
+								<!-- <div class="testimonial-box-one mt-30 wow fadeInUp" data-wow-delay="0.3s">
 									<div class="author-info">
+										{% if testimonials.3.image_50_by_50 %}
 										<div class="author-img">
-											<img src="{% static 'assets/img/author-thumbs/04.jpg' %}" alt="Thumb">
+											<img src="{{ testimonials.3.image_50_by_50.url }}" alt="{{ testimonials.3.full_name }}" style="width: 50px; height: 50px;">
 										</div>
+										{% endif %}
 										<div>
-											<h5 class="name">Mr Mathew</h5>
-											<p class="position">Web Developer</p>
+											<h5 class="name">{{ testimonials.3.full_name }}</h5>
+											<p class="position">{{ testimonials.3.designation }}</p>
 										</div>
 									</div>
 									<p class="testimonial-desc">
-										Quis autem vel eum reprehenderit quiea voluptate velit essenih lestiae conseqatur veillum dolorem
+										{{ testimonials.3.testimony|safe }}
 									</p>
 									<div class="rating-wrap">
 										<span>Rating</span>
@@ -566,8 +440,9 @@
 											<li><i class="fas fa-star"></i></li>
 										</ul>
 									</div>
-								</div>
+								</div> -->
 							</div>
+							{% endif %}
 						</div>
 					</div>
 				</div>
@@ -588,17 +463,17 @@
 				<div class="row justify-content-center">
 					<div class="col-xl-4 col-lg-5 col-md-9">
 						<div class="content">
-							<h2 class="cta-title">Donate And Support</h2>
-							<p>We are seeking support from people who can help bring our goals to reality </p>
-							<a href="events.html" class="main-btn">Start a Donation <i class="far fa-arrow-right"></i></a>
+							<!-- <h2 class="cta-title">Donate And Support</h2> -->
+							<!-- <p>We are seeking support from people who can help bring our goals to reality </p>
+							<a href="events.html" class="main-btn">Start a Donation <i class="far fa-arrow-right"></i></a> -->
 						</div>
 					</div>
 					<div class="col-xl-2 col-lg-1 cta-double-content-gap"></div>
 					<div class="col-xl-4 col-lg-5 col-md-9">
 						<div class="content">
-							<h2 class="cta-title">Access Data And Insights</h2>
+							<!-- h2 class="cta-title">Access Data And Insights</h2>
 							<p>Insight on how the foundation got to the very stage it is in now.</p>
-							<a href="events.html" class="main-btn">Get Insight <i class="far fa-arrow-right"></i></a>
+							<a href="events.html" class="main-btn">Get Insight <i class="far fa-arrow-right"></i></a> -->
 						</div>
 					</div>
 				</div>
@@ -607,48 +482,27 @@
 		<div class="emergency-project-slider">
 			<div class="container">
 				<div class="common-heading text-center mb-60">
-					<span class="tagline">
+					<!-- <span class="tagline">
 						<i class="fas fa-plus"></i> Donate Projects
 						<span class="heading-shadow-text">Donate</span>
-					</span>
-					<h2 class="title">Emergency Needed</h2>
+					</span> -->
+					<h2 class="title">Projects</h2>
 				</div>
 				<div class="row project-slider-two project-items project-style-four">
-					<div class="col">
+				{% if projects %}
+				{% for i in projects %}
+				<div class="col">
 						<div class="project-item">
-							<div class="thumb" style="background-image: url({% static 'assets/img/project/project-slider-01.png' %});"></div>
-							<div class="content">
-								<div class="cats">
-									<a href="#">Fashion School</a>
-								</div>
-
-								<!-- <div class="author">
-									<img src="{% static 'assets/img/author-thumbs/01.jpg' %}" alt="Thumb">
-									<a href="#">James W. Barrows</a>
-								</div> -->
-
-								<h5 class="title">
-									<a href="project-details.html">Fundraising Sewing Machines For Prospective Trainees</a>
-								</h5>
-								<div class="project-stats">
-									<div class="stats-value">
-										<span class="value-title">To Raise <span class="value">1.2M NGN</span></span>
-										<span class="stats-percentage">70%</span>
-									</div>
-									<div class="stats-bar" data-value="90">
-										<div class="bar-line"></div>
-									</div>
-								</div>
-								<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-							</div>
-						</div>
-					</div>
-					<div class="col">
-						<div class="project-item">
+							{% if i.image_770_by_445  %}
+							<div class="thumb" style="background-image: url({{ i.image_770_by_445.url }});"></div>
+							{% elif i.image_570_by_640 %}
+							<div class="thumb" style="background-image: url({{ i.image_770_by_445.url }});"></div>
+							{% else %}
 							<div class="thumb" style="background-image: url({% static 'assets/img/project/project-slider-02.png' %});"></div>
+							{% endif %}
 							<div class="content">
 								<div class="cats">
-									<a href="#">Chips Production</a>
+									<a>{{ i.category }}</a>
 								</div>
 
 								<!-- <div class="author">
@@ -657,50 +511,29 @@
 								</div> -->
 
 								<h5 class="title">
-									<a href="project-details.html">Fundraising Chips Production Machine</a>
+									<a href="project-details.html">{{ i.title }}</a>
 								</h5>
 								<div class="project-stats">
 									<div class="stats-value">
-										<span class="value-title">To Raise <span class="value">800k NGN</span></span>
-										<span class="stats-percentage">40%</span>
-									</div>
-									<div class="stats-bar" data-value="90">
+									<span class="value-title">{{ i.body|safe|slice:":100" }}...</span>
+									
+								</div>
+									<div class="stats-bar" data-value="100">
 										<div class="bar-line"></div>
 									</div>
 								</div>
-								<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
+								<div class="col-12">
+		                    		<div class="view-more-btn text-center mt-40">
+		                    			<!-- <span class="date"><i class="far fa-calendar-alt"></i>{{ i.created|date:"D, d M Y" }}</span> -->
+		                        		<a href="project-details.html" class="main-btn bordered-btn">View More<i class="far fa-arrow-right"></i></a>
+		                    		</div>
+		                		</div>
 							</div>
 						</div>
 					</div>
-					<div class="col">
-						<div class="project-item">
-							<div class="thumb" style="background-image: url({% static 'assets/img/project/project-slider-03.png' %});"></div>
-							<div class="content">
-								<div class="cats">
-									<a href="#">Software Development</a>
-								</div>
-
-								<!-- <div class="author">
-									<img src="{% static 'assets/img/author-thumbs/01.jpg' %}" alt="Thumb">
-									<a href="#">James W. Barrows</a>
-								</div> -->
-
-								<h5 class="title">
-									<a href="project-details.html">Fundraising For Laptops and Pc's</a>
-								</h5>
-								<div class="project-stats">
-									<div class="stats-value">
-										<span class="value-title">To Raise <span class="value">1.5M NGN</span></span>
-										<span class="stats-percentage">50%</span>
-									</div>
-									<div class="stats-bar" data-value="90">
-										<div class="bar-line"></div>
-									</div>
-								</div>
-								<span class="date"><i class="far fa-calendar-alt"></i> 25 February 2021</span>
-							</div>
-						</div>
-					</div>
+					{% endfor %}
+					{% endif %}
+					
 				</div>
 			</div>
 		</div>

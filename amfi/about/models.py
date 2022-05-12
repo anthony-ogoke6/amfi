@@ -31,7 +31,7 @@ class About(models.Model):
         ('draft','Draft'),
         ('published','Published'),
     )
-    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
+    
     title               =       models.CharField(max_length=200)
     slug                =       models.SlugField(max_length=200)
     image_510_by_580               =       models.ImageField(blank=True, null=True)
@@ -39,6 +39,7 @@ class About(models.Model):
     body                =       models.TextField(blank=True, null=True)
     sub_title               =       models.CharField(max_length=200, blank=True, null=True)
     sub_body                =       models.TextField(blank=True, null=True)
+    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     # sub_title2               =       models.CharField(max_length=200, blank=True, null=True)
     # sub_body2                =       models.TextField(blank=True, null=True)
     # sub_title3               =       models.CharField(max_length=200, blank=True, null=True)

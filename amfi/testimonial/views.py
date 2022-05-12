@@ -25,6 +25,7 @@ import hmac
 import hashlib
 import json
 from django.views.decorators.csrf import csrf_exempt
+from .models import *
 
 
 import logging
@@ -36,4 +37,8 @@ logger = logging.getLogger(__name__)
 
 
 def testimonials(request):
-	return render(request, 'testimonial/testimonial.html')
+	testimonials = Testimonial.objects.all()
+	context = {
+        'testimonials': testimonials,
+        }
+	return render(request, 'testimonial/testimonial.html', context)

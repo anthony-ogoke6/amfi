@@ -51,17 +51,19 @@
                 <div class="col-lg-4 col-md-6 col-sm-9">
                     <div class="member-box mb-30">
                         <div class="member-photo">
-                            <img src="{{ i.image_370_by_410.url }}" alt="Member">
+                            {% if i.image_370_by_410 %}
+                            <img src="{{ i.image_370_by_410.url }}" alt="{{ i.full_name }}">
+                            {% endif %}
                         </div>
                         <div class="member-info">
-                            <h5 class="name"><a href="#">{{ i.full_name }}</a></h5>
-                            <span class="title">{{ i.designation }}</span>
-                            <ul class="social-links">
+                            <h5 class="name"><a href="{{ i.get_absolute_url }}">{{ i.full_name }}</h5>
+                            <span class="title"><a href="{{ i.get_absolute_url }}">{{ i.designation }}</a></span>
+                            <!-- <ul class="social-links">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                                 <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
@@ -72,6 +74,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-9">
                     <div class="member-box mb-30">
                         <div class="member-photo">
+
                             <img src="{% static 'assets/img/team/02.jpg' %}" alt="Member">
                         </div>
                         <div class="member-info">
@@ -207,9 +210,9 @@
                 </div>
                 {% endif %}
 				<div class="col-12">
-                    <div class="view-more-btn text-center mt-40">
+                    <!-- <div class="view-more-btn text-center mt-40">
                         <a href="contact.html" class="main-btn">Join Our Team <i class="far fa-arrow-right"></i></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

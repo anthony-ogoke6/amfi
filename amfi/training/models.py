@@ -34,11 +34,9 @@ class Training(models.Model):
     category               	=       models.CharField(max_length=200, blank=True, null=True)
     title               	=       models.CharField(max_length=400, blank=True, null=True)
     slug                	=       models.SlugField(max_length=200, blank=True, null=True)
-    facilitator              =       models.ForeignKey(User, on_delete=models.CASCADE, related_name='training_facilitator', blank=True, null=True)
+    location                =       models.CharField(max_length=200, blank=True, null=True)
+    facilitator              =       models.CharField(max_length=200, blank=True, null=True)
     image_570_by_640    	=       models.ImageField(blank=True, null=True)
-    amount_required         =       models.PositiveIntegerField(default=0, blank=True, null=True)
-    amount_raised         	=       models.PositiveIntegerField(default=0, blank=True, null=True)
-    percentage         		=       models.PositiveIntegerField(default=0, blank=True, null=True)
     sub_title               =       models.CharField(max_length=200, blank=True, null=True)
     body                	=       models.TextField(blank=True, null=True)
     image_770_by_445        =       models.ImageField(blank=True, null=True)
@@ -53,13 +51,13 @@ class Training(models.Model):
 
     class Meta:
         ordering = ['-id']
-        verbose_name = 'Project'
-        verbose_name_plural = 'Projects'
+        verbose_name = 'Training'
+        verbose_name_plural = 'Training'
 
     def __str__(self):
         return self.title
 
 
     def get_absolute_url(self):
-        return reverse("projects:project_details", args=[self.id, self.slug])
+        return reverse("training:training_details", args=[self.id, self.slug])
 

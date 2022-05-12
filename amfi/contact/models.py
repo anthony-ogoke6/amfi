@@ -32,12 +32,12 @@ class Contact(models.Model):
         ('published','Published'),
     )
 
-    author              =       models.ForeignKey(User, on_delete=models.CASCADE, related_name='contact_owner')
-    title               =       models.CharField(max_length=200)
+    title               =       models.CharField(max_length=200, blank=True, null=True)
     description         =       models.TextField(blank=True, null=True)
-    slug                =       models.SlugField(max_length=200)
+    email               =       models.EmailField(blank=True, null=True)
+    location            =       models.CharField(max_length=200, blank=True, null=True)
+    support_line        =       models.CharField(max_length=200, blank=True, null=True)
     status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
-    image               =       models.ImageField(blank=True, null=True)
     view_count          =       models.PositiveIntegerField(default=0)
     created             =       models.DateTimeField(auto_now_add=True)
     updated             =       models.DateTimeField(auto_now=True)
@@ -46,15 +46,11 @@ class Contact(models.Model):
 
     class Meta:
         ordering = ['-id']
-        verbose_name = 'Contact'
-        verbose_name_plural = 'Contact'
+        verbose_name = 'Contact Us'
+        verbose_name_plural = 'Contact Us'
 
     def __str__(self):
         return self.title
-
-
-    def get_absolute_url(self):
-        return reverse("contact:contact_detail", args=[self.id, self.slug])
 
 
 
@@ -66,7 +62,6 @@ class ContactMessage(models.Model):
     email   =      models.EmailField(blank=False, null=False)
     phone_number    =      models.CharField(max_length=200, blank=True, null=True)
     subject   =      models.CharField(max_length=200, blank=True, null=True)
-    slug                =       models.SlugField(max_length=200)
     message      =       models.TextField(blank=True, null=True)
     created             =       models.DateTimeField(auto_now_add=True)
     updated             =       models.DateTimeField(auto_now=True)
@@ -78,6 +73,3 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return self.full_name
-
-    def get_absolute_url(self):
-        return reverse("contact:contact_messages_detail", args=[self.id, self.slug])

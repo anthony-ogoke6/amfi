@@ -32,8 +32,13 @@ class Team(models.Model):
     )
     status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     full_name           =       models.CharField(max_length=400)
-    designation         =       models.CharField(max_length=200)
     image_370_by_410    =       models.ImageField(blank=True, null=True)
+    image_570_by_640    =       models.ImageField(blank=True, null=True)
+    slug                    =       models.SlugField(max_length=200, blank=True, null=True)
+    designation         =       models.CharField(max_length=200)
+    speech                    =       models.TextField(blank=True, null=True)
+    image_770_by_445    =       models.ImageField(blank=True, null=True)
+    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     created             =       models.DateTimeField(auto_now_add=True)
     updated             =       models.DateTimeField(auto_now=True)
 
@@ -43,4 +48,7 @@ class Team(models.Model):
 
     def __str__(self):
     	return self.full_name
+
+    def get_absolute_url(self):
+        return reverse("team:team_details", args=[self.id, self.slug])
 

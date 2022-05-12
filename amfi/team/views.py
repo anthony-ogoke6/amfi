@@ -42,3 +42,12 @@ def team(request):
         'team': team,
         }
 	return render(request, 'team/team-member.html', context)
+
+
+def team_details(request, id, slug):
+	team = get_object_or_404(Team, id=id, slug=slug)
+	context = {
+		'team': team,
+	}
+	return render(request, 'team/team-details.html', context)
+

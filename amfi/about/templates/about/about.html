@@ -129,77 +129,6 @@
 {% endblock %}
 
 
-
-{% block do %}
-    
-	<!--====== Feature Section Start ======-->
-	<section class="feature-section primary-soft-bg section-gap">
-		<div class="container">
-			<div class="common-heading text-center mb-30">
-				<span class="tagline">
-					<i class="fas fa-plus"></i> What We Do
-					<span class="heading-shadow-text">Features</span>
-				</span>
-				<h2 class="title">Why choose us</h2>
-			</div>
-
-			<div class="row icon-boxes justify-content-center">
-				<div class="col-lg-4 col-md-6 col-sm-9 wow fadeInUp" data-wow-delay="0.1s">
-					<div class="icon-box mt-30">
-						<div class="icon">
-							<i class="flaticon-debit-card"></i>
-						</div>
-						<h5 class="title">Fast & Easy Payouts</h5>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium totam</p>
-						<a href="project-details.html" class="link"><i class="far fa-arrow-right"></i></a>
-						<span class="box-index">01</span>
-
-						<div class="box-img">
-							<img src="{% static 'assets/img/icon-box-bg.jpg' %}" alt="image">
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-9 wow fadeInUp" data-wow-delay="0.2s">
-					<div class="icon-box mt-30">
-						<div class="icon">
-							<i class="flaticon-payment"></i>
-						</div>
-						<h5 class="title">Global Payment Processing</h5>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium totam</p>
-						<a href="project-details.html" class="link"><i class="far fa-arrow-right"></i></a>
-						<span class="box-index">02</span>
-
-						<div class="box-img">
-							<img src="{% static 'assets/img/icon-box-bg.jpg' %}" alt="image">
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-9 wow fadeInUp" data-wow-delay="0.3s">
-					<div class="icon-box mt-30">
-						<div class="icon">
-							<i class="flaticon-wallet-1"></i>
-						</div>
-						<h5 class="title">Many Payment Options</h5>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-							laudantium totam</p>
-						<a href="project-details.html" class="link"><i class="far fa-arrow-right"></i></a>
-						<span class="box-index">03</span>
-
-						<div class="box-img">
-							<img src="{% static 'assets/img/icon-box-bg.jpg' %}" alt="image">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--====== Feature Section End ======-->
-
-{% endblock %}
-
-
 {% block team %}
     
 	<!--====== Team section Start ======-->
@@ -215,31 +144,36 @@
 						<h2 class="title">Meet Professional Team</h2>
 					</div>
 				</div>
-				<div class="col-auto">
+				<!-- <div class="col-auto">
 					<a href="contact.html" class="main-btn mb-40">Join Our Team <i class="far fa-arrow-right"></i></a>
-				</div>
+				</div> -->
 			</div>
 
 		</div>
 		<div class="container-fluid fluid-extra-padding">
 			<div class="row team-members team-slider">
+				{% if team %}
+                {% for i in team %}
 				<div class="col">
 					<div class="member-box">
 						<div class="member-photo">
-							<img src="{% static 'assets/img/team/01.jpg' %}" alt="Member">
+							<img src="{{ i.image_370_by_410.url }}" alt="Member">
 						</div>
 						<div class="member-info">
-							<h5 class="name"><a href="company-overview.html">Allen J. Thompson</a></h5>
-							<span class="title">CEO & Founder</span>
-							<ul class="social-links">
+							<h5 class="name">{{ i.full_name }}</h5>
+							<span class="title">{{ i.designation }}</span>
+							<!-- <ul class="social-links">
 								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
 								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
 								<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 				</div>
+				{% endfor %}
+
+                {% else %}
 				<div class="col">
 					<div class="member-box">
 						<div class="member-photo">
@@ -376,6 +310,7 @@
 						</div>
 					</div>
 				</div>
+				{% endif %}
 			</div>
 		</div>
 	</section>
@@ -484,32 +419,60 @@
 			</div>
 
 			<div class="row justify-content-center testimonial-boxes square-shape-two">
+				{% if testimonials %}
+                {% for i in testimonials %}
 				<div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.2s">
 					<div class="testimonial-box-one mt-30">
 						<div class="author-info">
+							{% if i.image_50_by_50 %}
+							<div class="author-img">
+								<img src="{{ i.image_50_by_50.url }}" alt="{{ i.full_name }}" style="width: 50px; height: 50px;">
+							</div>
+							{% else %}
 							<div class="author-img">
 								<img src="{% static 'assets/img/author-thumbs/03.jpg' %}" alt="Thumb">
 							</div>
+							{% endif %}
 							<div>
-								<h5 class="name">Joseph A. Anthony</h5>
-								<p class="position">Web Developer</p>
+								<h5 class="name">{{ i.full_name }}</h5>
+								<p class="position">{{ i.designation }}</p>
 							</div>
 						</div>
 						<p class="testimonial-desc">
-							Quis autem vel eum reprehenderit quiea voluptate velit essenih lestiae conseqatur veillum dolorem
+							{{ i.testimony|safe }}
 						</p>
 						<div class="rating-wrap">
 							<span>Rating</span>
 							<ul>
+								{% if i.rating == 5 %}
 								<li><i class="fas fa-star"></i></li>
 								<li><i class="fas fa-star"></i></li>
 								<li><i class="fas fa-star"></i></li>
 								<li><i class="fas fa-star"></i></li>
 								<li><i class="fas fa-star"></i></li>
-							</ul>
+								{% elif i.rating == 4 %}
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								{% elif i.rating == 3 %}
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								{% elif i.rating == 2 %}
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								{% elif i.rating == 1 %}
+								<li><i class="fas fa-star"></i></li>
+								{% else %}
+								<li></li>
+								{% endif %}
 						</div>
 					</div>
 				</div>
+				{% endfor %}
+
+                {% else %}
 				<div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.3s">
 					<div class="testimonial-box-one mt-30">
 						<div class="author-info">
@@ -640,6 +603,7 @@
 						</div>
 					</div>
 				</div>
+				{% endif %}
 			</div>
 		</div>
 	</section>

@@ -55,32 +55,63 @@
 			</div>
 
 			<div class="row justify-content-center testimonial-boxes square-shape-two">
+				{% if testimonials %}
+                {% for i in testimonials %}
 				<div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.2s">
 					<div class="testimonial-box-one mt-30">
 						<div class="author-info">
+							{% if i.image_50_by_50 %}
 							<div class="author-img">
-								<img src="{% static 'assets/img/author-thumbs/03.jpg' %}" alt="Thumb">
+								<img src="{{ i.image_50_by_50.url }}" alt="{{ i.full_name }}" style="width: 50px; height: 50px;">
 							</div>
+							{% else %}
+
+							<div class="author-img">
+								<img src="{% static 'assets/img/author-thumbs/02.jpg' %}" alt="Thumb">
+							</div>
+							{% endif %}
 							<div>
-								<h5 class="name">Joseph A. Anthony</h5>
-								<p class="position">Web Developer</p>
+								<h5 class="name">{{ i.full_name }}</h5>
+								<p class="position">{{ i.designation }}</p>
 							</div>
 						</div>
 						<p class="testimonial-desc">
-							Quis autem vel eum reprehenderit quiea voluptate velit essenih lestiae conseqatur veillum dolorem
+							{{ i.testimony|safe }}
 						</p>
 						<div class="rating-wrap">
 							<span>Rating</span>
+							<!-- <span>{{ i.rating }}</span> -->
 							<ul>
+								{% if i.rating == 5 %}
 								<li><i class="fas fa-star"></i></li>
 								<li><i class="fas fa-star"></i></li>
 								<li><i class="fas fa-star"></i></li>
 								<li><i class="fas fa-star"></i></li>
 								<li><i class="fas fa-star"></i></li>
+								{% elif i.rating == 4 %}
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								{% elif i.rating == 3 %}
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								{% elif i.rating == 2 %}
+								<li><i class="fas fa-star"></i></li>
+								<li><i class="fas fa-star"></i></li>
+								{% elif i.rating == 1 %}
+								<li><i class="fas fa-star"></i></li>
+								{% else %}
+								<li></li>
+								{% endif %}
 							</ul>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
+
+                {% else %}
 				<div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.3s">
 					<div class="testimonial-box-one mt-30">
 						<div class="author-info">
@@ -211,6 +242,7 @@
 						</div>
 					</div>
 				</div>
+				{% endif %}
 			</div>
 		</div>
 	</section>

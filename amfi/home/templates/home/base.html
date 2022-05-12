@@ -93,6 +93,12 @@
     {% block projectdetails %}
     {% endblock %}
 
+    {% block teamdetails %}
+    {% endblock %}
+
+    {% block trainingdetails %}
+    {% endblock %}
+
     {% block training %}
     {% endblock %}
 
@@ -124,7 +130,7 @@
 				<div class="row justify-content-lg-between justify-content-center align-items-center">
 					<div class="col-lg-7 col-md-8 col-sm-10">
 						<span class="cta-tagline">5 Years Of Experience In AMFI</span>
-						<h3 class="cta-title">Raise Hand to Promote Best Projects</h3>
+						<h3 class="cta-title">Raise Hand to Empower Lives</h3>
 					</div>
 					<!-- <div class="col-lg-auto col-md-6">
 						<a href="contact.html" class="main-btn bordered-btn bordered-white mt-md-30">
@@ -195,7 +201,7 @@
 										<span class="icon"><i class="far fa-envelope-open"></i></span>
 										<span class="info">
 											<span class="info-title">Email Address</span>
-											<a href="#">amfist1982@gmail.com</a>
+											<a href="#">support@amfiinstitute.com</a>
 										</span>
 									</li>
 									<li>
@@ -246,6 +252,40 @@
 	<script src="{% static 'assets/js/wow.min.js' %}"></script>
 	<!--====== Main js ======-->
 	<script src="{% static 'assets/js/main.js' %}"></script>
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+	{% if messages %}
+    {% for message in messages %}
+    {% if 'success' in message.extra_tags %}
+      <script>
+        Swal.fire({
+          "title": "Thanks!",
+          "text": "{{ message }}",
+          "icon": "success"
+        })
+      </script>
+      {% elif 'warning' in message.extra_tags %}
+      <script>
+          Swal.fire({
+              "title": "Warning!",
+              "text": "{{ message }}",
+              "icon": "warning"
+          })
+      </script>
+      {% elif 'error' in message.extra_tags %}
+      <script>
+          Swal.fire({
+              "title": "Error!",
+              "text": "{{ message }}",
+              "icon": "error"
+          })
+      </script>
+      {% endif %}
+    {% endfor %}
+    {% endif %}
+
 
 	
 </body>

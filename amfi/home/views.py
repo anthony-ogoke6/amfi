@@ -25,6 +25,10 @@ import hmac
 import hashlib
 import json
 from django.views.decorators.csrf import csrf_exempt
+from testimonial.models import *
+from about.models import *
+from projects.models import *
+from training.models import Training
 
 
 import logging
@@ -35,7 +39,17 @@ logger = logging.getLogger(__name__)
 
 
 def home(request):
-	return render(request, 'home/index.html')
+	about = About.objects.all()
+	testimonials = Testimonial.objects.all()
+	projects = Project.objects.all()
+	training = Training.objects.all()
+	context = {
+        'about': about,
+        'testimonials': testimonials,
+        'projects': projects,
+        'training': training,
+        }
+	return render(request, 'home/index.html', context)
 
 
 

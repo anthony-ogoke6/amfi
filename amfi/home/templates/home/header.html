@@ -8,7 +8,7 @@
 				<div class="row justify-content-between align-items-center">
 					<div class="col-auto">
 						<ul class="contact-info">
-							<li><a href="#"><i class="far fa-envelope"></i>amfist1982@gmail.com</a></li>
+							<li><a href="#"><i class="far fa-envelope"></i>support@amfiinstitute.com</a></li>
 							<li><a href="#"><i class="far fa-map-marker-alt"></i> St Augustines Catholic Churcu, Ikorodu, Lagos, Nigeria.</a></li>
 						</ul>
 					</div>
@@ -63,9 +63,10 @@
 							<li class="{% if request.path == training %}current{% endif %}">
 								<a href="{% url 'training:training' %}">Training</a>
 							</li>
-							<li class="{% if request.path == news %}current{% endif %}">
+							<li class="{% if request.path == contact %}current{% endif %}"><a href="{% url 'contact:contact' %}">Contact Us</a></li>
+							<!-- <li class="{% if request.path == news %}current{% endif %}">
 								<a href="{% url 'news:news' %}">News</a>
-							</li>
+							</li> -->
 							<!-- <li>
 								<a href="news-standard.html">News</a>
 								<ul class="submenu">
@@ -74,23 +75,23 @@
 								</ul>
 							</li> -->
 							<li class="{% if request.path == About %}current{% endif %}" >
-								<a href="#">More</a>
+								<a>More</a>
 								<ul class="submenu">
 									<li><a href="{% url 'about:about' %}">About</a></li>
 									<!-- <li><a href="company-overview.html">Institution Objectives</a></li> -->
 									<li><a href="{% url 'team:team' %}">Team Members</a></li>
 									<!-- <li><a href="pricing.html">Pricing</a></li> -->
-									<li><a href="{% url 'faq:faq' %}">FAQ</a></li>
+									<!-- <li><a href="{% url 'faq:faq' %}">FAQ</a></li> -->
 									<li><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
 								</ul>
 							</li>
-							<li class="{% if request.path == contact %}current{% endif %}"><a href="{% url 'contact:contact' %}">Contact</a></li>
+							
 						</ul>
 					</div>
 					<div class="navbar-extra d-flex align-items-center">
-						<a href="events.html" class="main-btn nav-btn d-none d-sm-inline-block">
+						<!-- <a href="events.html" class="main-btn nav-btn d-none d-sm-inline-block">
 							Donate Now <i class="far fa-arrow-right"></i>
-						</a>
+						</a> -->
 						<a href="#" class="nav-toggler">
                             <span></span>
                         </a>
@@ -134,9 +135,10 @@
 				<li class="{% if request.path == training %}current{% endif %}">
 					<a href="{% url 'training:training' %}">Training</a>
 				</li>
-				<li class="{% if request.path == news %}current{% endif %}">
+				<li class="{% if request.path == contact %}current{% endif %}"><a href="{% url 'contact:contact' %}">Contact Us</a></li>
+				<!-- <li class="{% if request.path == news %}current{% endif %}">
 					<a href="{% url 'news:news' %}">News</a>
-				</li>
+				</li> -->
 				<!-- <li>
 					<a href="news-standard.html">News</a>
 					<ul class="submenu">
@@ -145,22 +147,22 @@
 					</ul>
 				</li> -->
 				<li class="{% if request.path == about %}current{% endif %}">
-					<a href="#">More</a>
+					<a>More</a>
 					<ul class="submenu">
 						<li><a href="{% url 'about:about' %}">About</a></li>
 						<!-- <li><a href="company-overview.html">Institution's Objectives</a></li> -->
 						<li><a href="{% url 'team:team' %}">Team Members</a></li>
 						<!-- <li><a href="pricing.html">Pricing</a></li> -->
-						<li><a href="{% url 'faq:faq' %}">FAQ</a></li>
+						<!-- <li><a href="{% url 'faq:faq' %}">FAQ</a></li> -->
 						<li><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
 					</ul>
 				</li>
-				<li class="{% if request.path == contact %}current{% endif %}"><a href="{% url 'contact:contact' %}">Contact</a></li>
+				
 			</ul>
 			<div class="panel-extra">
-				<a href="#" class="main-btn btn-white">
+				<!-- <a href="#" class="main-btn btn-white">
 					Donate Now <i class="far fa-arrow-right"></i>
-				</a>
+				</a> -->
 			</div>
 			<a href="#" class="panel-close">
 				<i class="fal fa-times"></i>

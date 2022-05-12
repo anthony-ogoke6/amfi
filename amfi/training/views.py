@@ -25,6 +25,7 @@ import hmac
 import hashlib
 import json
 from django.views.decorators.csrf import csrf_exempt
+from .models import Training
 
 
 import logging
@@ -33,9 +34,22 @@ logger = logging.getLogger(__name__)
 
 
 
-
 def training(request):
-	return render(request, 'training/events.html')
+	training = Training.objects.all()
+	context = {
+        'training': training,
+        }
+	return render(request, 'training/events.html', context)
 
+
+def training_details(request, id, slug):
+	training_increament = get_object_or_404(Training, id=id, slug=slug)
+	training_increament.view_count +=1
+	training_increament.save()
+	training = get_object_or_404(Training, id=id, slug=slug)
+	context = {
+		'training': training,
+	}
+	return render(request, 'training/training-details.html', context)
 
 
