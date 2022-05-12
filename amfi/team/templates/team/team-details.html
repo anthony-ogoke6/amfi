@@ -49,13 +49,13 @@
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-6 col-md-10">
-					{% if team.image_570_by_640  %}
+					{% if team.image_370_by_410  %}
+					<div class="project-thumb mb-md-50">
+						<img src="{{ team.image_370_by_410.url }}" alt="Image" style="width: 500px;">
+					</div>
+					{% elif team.image_570_by_640 %}
 					<div class="project-thumb mb-md-50">
 						<img src="{{ team.image_570_by_640.url }}" alt="Image" style="width: 500px;">
-					</div>
-					{% elif team.image_770_by_445 %}
-					<div class="project-thumb mb-md-50">
-						<img src="{{ team.image_770_by_445.url }}" alt="Image" style="width: 500px;">
 					</div>
 					{% else %}
 					<div class="project-thumb mb-md-50">
@@ -66,9 +66,12 @@
 				<div class="col-lg-6">
 					<div class="project-summery" style="padding: unset;">
 						<a class="category">Team</a>
+					 {% if team.full_name %}
 						<h3 class="project-title">
+
 							{{ team.full_name }}
 						</h3>
+						{% endif %}
 
 						<div class="meta">
 							<div class="author">
@@ -120,12 +123,19 @@
 								<div class="row justify-content-center">
 									<div class="col-lg-8">
 										<div class="description-content">
+											{% if team.designation %}
 											<h4 class="description-title">{{ team.designation }}</h4>
+											{% endif %}
+
+											{% if team.speech %}
 											<p>
 												{{ team.speech|safe }}
 											</p>
+											{% endif %}
+
+											{% if team.image_770_by_445 %}
 											<img class="mt-50 mb-50" src="{{ team.image_770_by_445.url }}" alt="Image" style="width: 600px;">
-											
+											{% endif %}
 											<!-- <ul class="description-list">
 												<li>Standard Lorem Sum Passage Used</li>
 												<li>Build A Music Manager With Nuxt</li>
