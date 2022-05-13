@@ -63,7 +63,7 @@ def enroll(request):
 		emailTo = [settings.EMAIL_HOST_USER, email]
 		send_mail(subject, message, emailFrom, emailTo )
 		messages.success(request, "Message sent successfully, we will reach out to you shortly", extra_tags='success')
-		return redirect('contact:contact')
+		return redirect('training:training')
 		#else:
 		# messages.success(request, "Message not sent.", extra_tags='error')
 		# return redirect('contact:contact')
