@@ -60,13 +60,14 @@ class Enroll(models.Model):
     )
 
     
+    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     full_name               =       models.CharField(max_length=200, blank=True, null=True)
     email               =       models.EmailField(blank=True, null=True)
     phone_number        =       models.CharField(max_length=200, blank=True, null=True)
     address         =       models.TextField(blank=True, null=True)
     training              =       models.CharField(max_length=1000, choices=BLANK_CHOICE_DASH + list(TRAINING))
     your_parish              =       models.CharField(max_length=1000, choices=BLANK_CHOICE_DASH + list(PARISH))
-    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
+    
     view_count          =       models.PositiveIntegerField(default=0)
     created             =       models.DateTimeField(auto_now_add=True)
     updated             =       models.DateTimeField(auto_now=True)

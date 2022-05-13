@@ -56,10 +56,11 @@ class Faq(models.Model):
         ('Project','Project'),
 
     )
+    status                  =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     category            =       models.CharField( max_length=100, choices=BLANK_CHOICE_DASH + list(CATEGORY_CHOICES))
     question    =      models.CharField(max_length=400)    
     answer    =      models.TextField(blank=True, null=True)
-    status              	=       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
+    
     created             =       models.DateTimeField(auto_now_add=True)
     updated             =       models.DateTimeField(auto_now=True)
 

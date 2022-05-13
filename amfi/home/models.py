@@ -31,11 +31,9 @@ class Home(models.Model):
         ('published','Published'),
     )
 
-    reference           =       models.UUIDField( editable=False, unique=True)
+    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     title               =       models.CharField(max_length=200)
     slug                =       models.SlugField(max_length=200)
-    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
-
     author              =       models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     description         =       models.TextField()
     video               =       models.FileField(blank=True, null=True)

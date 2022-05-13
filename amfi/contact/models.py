@@ -32,12 +32,13 @@ class Contact(models.Model):
         ('published','Published'),
     )
 
+    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     title               =       models.CharField(max_length=200, blank=True, null=True)
     description         =       models.TextField(blank=True, null=True)
     email               =       models.EmailField(blank=True, null=True)
     location            =       models.CharField(max_length=200, blank=True, null=True)
     support_line        =       models.CharField(max_length=200, blank=True, null=True)
-    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
+    
     view_count          =       models.PositiveIntegerField(default=0)
     created             =       models.DateTimeField(auto_now_add=True)
     updated             =       models.DateTimeField(auto_now=True)

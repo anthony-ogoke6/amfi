@@ -39,6 +39,7 @@
 					        {% url 'about:about' as about %}
 					        {% url 'contact:contact' as contact %}
 					        {% url 'team:team' as team %}
+					        {% url 'board:board' as board %}
 					        {% url 'faq:faq' as faq %}
 					        {% url 'testimonial:testimonial' as testimonial %}
 							<li class="{% if request.path == home %}current{% endif %}">
@@ -74,12 +75,13 @@
 									<li><a href="news-details.html">News Details</a></li>
 								</ul>
 							</li> -->
-							<li class="{% if request.path == About %}current{% endif %}" >
+							<li class="{% if request.path == about or request.path == team or request.path == board or request.path == testimonial %}current{% endif %}" >
 								<a>More</a>
 								<ul class="submenu">
 									<li><a href="{% url 'about:about' %}">About</a></li>
 									<!-- <li><a href="company-overview.html">Institution Objectives</a></li> -->
-									<li><a href="{% url 'team:team' %}">Team Members</a></li>
+									<li class="{% if request.path == team %}current{% endif %}"><a href="{% url 'team:team' %}">Committee</a></li>
+									<li class="{% if request.path == board %}current{% endif %}"><a href="{% url 'board:board' %}">Board of Trustees</a></li>
 									<!-- <li><a href="pricing.html">Pricing</a></li> -->
 									<!-- <li><a href="{% url 'faq:faq' %}">FAQ</a></li> -->
 									<li><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
@@ -111,6 +113,7 @@
 		        {% url 'about:about' as about %}
 		        {% url 'contact:contact' as contact %}
 		        {% url 'team:team' as team %}
+		        {% url 'board:board' as board %}
 		        {% url 'faq:faq' as faq %}
 		        {% url 'testimonial:testimonial' as testimonial %}
 				<li class="{% if request.path == home %}current{% endif %}">
@@ -146,12 +149,13 @@
 						<li><a href="news-details.html">News Details</a></li>
 					</ul>
 				</li> -->
-				<li class="{% if request.path == about %}current{% endif %}">
+				<li class="{% if request.path == about or request.path == team or request.path == board or request.path == testimonial %}current{% endif %}" >
 					<a>More</a>
 					<ul class="submenu">
 						<li><a href="{% url 'about:about' %}">About</a></li>
 						<!-- <li><a href="company-overview.html">Institution's Objectives</a></li> -->
-						<li><a href="{% url 'team:team' %}">Team Members</a></li>
+						<li class="{% if request.path == team %}current{% endif %}"><a href="{% url 'team:team' %}">Committee</a></li>
+									<li class="{% if request.path == board %}current{% endif %}"><a href="{% url 'board:board' %}">Board of Trustees</a></li>
 						<!-- <li><a href="pricing.html">Pricing</a></li> -->
 						<!-- <li><a href="{% url 'faq:faq' %}">FAQ</a></li> -->
 						<li><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>

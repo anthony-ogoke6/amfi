@@ -1,0 +1,193 @@
+
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+
+{% block title %}
+{{ block.super }} Member Details
+{% endblock %}
+
+
+
+	{% block nav %}
+
+	{% include 'about/header_about.html' %}
+
+	{% endblock %}
+
+
+{% block jumbotron %}
+
+	<!--====== Page Title Start ======-->
+	<section class="page-title-area">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-8">
+					<h1 class="page-title">Board of Trustees Details</h1>
+				</div>
+				<div class="col-auto">
+					<ul class="page-breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li>Details</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Page Title End ======-->
+
+{% endblock %}
+
+
+
+{% block teamdetails %}
+	<!--====== Project Details Area Start ======-->
+	<section class="project-details-area section-gap-extra-bottom">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-lg-6 col-md-10">
+					{% if board.image_370_by_410  %}
+					<div class="project-thumb mb-md-50">
+						<img src="{{ board.image_370_by_410.url }}" alt="Image" style="width: 500px;">
+					</div>
+					{% elif board.image_570_by_640 %}
+					<div class="project-thumb mb-md-50">
+						<img src="{{ board.image_570_by_640.url }}" alt="Image" style="width: 500px;">
+					</div>
+					{% else %}
+					<div class="project-thumb mb-md-50">
+						<img src="{% static 'assets/img/project/project-details.jpg' %}" alt="Image">
+					</div>
+					{% endif %}
+				</div>
+				<div class="col-lg-6">
+					<div class="project-summery" style="padding: unset;">
+						<a class="category">Board of Trustees</a>
+					 {% if board.full_name %}
+						<h3 class="project-title">
+
+							{{ board.full_name }}
+						</h3>
+						{% endif %}
+
+						<div class="meta">
+							<div class="author">
+								<!-- <img src="{% static 'assets/img/author-thumbs/03.jpg' %}" alt="Thumb">
+								<a href="#">James W. Barrows</a> -->
+							</div>
+							<!-- <a class="date"><i class="far fa-calendar-alt"></i>{{ project.created|date:"D, d M Y" }}</a> -->
+						</div>
+						<!-- <div class="project-funding-info">
+							<div class="info-box">
+								<span>Openning Hours</span>
+								<span class="info-title">Mon-Sat</span>
+								<span class="info-title">8am-5pm</span>
+								<br>
+							</div>
+							<div class="info-box">
+								<span>Working Hours</span>
+								<span class="info-title">Mon-Fri:8am-5pm</span>
+							</div>
+						</div> -->
+						<!-- <div class="project-raised clearfix">
+							<div class="d-flex align-items-center justify-content-between">
+								<div class="raised-label">Supervisor</div><span class="info-title">AMFI Admin</span>
+								<div class="percent-raised">60%</div>
+							</div>
+							<div class="stats-bar" data-value="100">
+								<div class="bar-line"></div>
+							</div>
+						</div> -->
+						<!-- <div class="project-form">
+							<form action="#">
+								<ul class="donation-amount">
+									<li>5k</li>
+									<li>50k</li>
+									<li>180k</li>
+									<li>500k</li>
+									<li>1M</li>
+								</ul>
+								<button type="submit" class="main-btn">Donate Now <i class="far fa-arrow-right"></i></button>
+							</form>
+						</div> -->
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="project-details-tab">
+				
+						<div class="tab-content" id="projectTabContent">
+							<div class="tab-pane fade show active" id="description" role="tabpanel">
+								<div class="row justify-content-center">
+									<div class="col-lg-8">
+										<div class="description-content">
+											{% if board.designation %}
+											<h4 class="description-title">{{ board.designation }}</h4>
+											{% endif %}
+
+											{% if board.speech %}
+											<p>
+												{{ board.speech|safe }}
+											</p>
+											{% endif %}
+
+											{% if board.image_770_by_445 %}
+											<img class="mt-50 mb-50" src="{{ board.image_770_by_445.url }}" alt="Image" style="width: 600px;">
+											{% endif %}
+											<!-- <ul class="description-list">
+												<li>Standard Lorem Sum Passage Used</li>
+												<li>Build A Music Manager With Nuxt</li>
+												<li>A Foldable Web Actually Mean</li>
+												<li>Upcoming Web Design Conferences</li>
+											</ul> -->
+											<!-- <p>
+												But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes,
+											</p> -->
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-6 col-sm-10">
+										<div class="rewards-box mt-md-50">
+											<h4 class="title">Advertise Here</h4>
+											<img src="{% static 'assets/img/project/project-rewards.jpg' %}" alt="Image">
+											<!-- <span class="rewards-count"><span>$530</span> or More</span> -->
+											<p>
+												Contact AMFI to advertise here
+											</p>
+											<!-- <div class="delivery-date">
+												<span>25 Mar 20210</span>
+												Estimated Delivery
+											</div>
+											<ul class="rewards-info">
+												<li>
+													<i class="far fa-user-circle"></i>5 Backers
+												</li>
+												<li>
+													<i class="far fa-trophy-alt"></i>29 Rewards Left
+												</li>
+											</ul>
+											<a href="events.html" class="main-btn">Select Rewards <i class="far fa-arrow-right"></i></a> -->
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="tab-pane fade" id="update" role="tabpanel">
+								Update
+							</div>
+							<div class="tab-pane fade" id="bascker-list" role="tabpanel">
+								Bascker List
+							</div>
+							<div class="tab-pane fade" id="reviews" role="tabpanel">
+								Reviews
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Project Details Area End ======-->
+{% endblock %}
+
+

@@ -33,6 +33,7 @@ urlpatterns = [
     path('testimonial/', include('testimonial.urls', namespace="testimonial")),
     path('team/', include('team.urls', namespace="team")),
     path('faq/', include('faq.urls', namespace="faq")),
+    path('board/', include('board.urls', namespace="board")),
     path('summernote/', include('django_summernote.urls')),
 ]
 

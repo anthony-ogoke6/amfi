@@ -32,7 +32,7 @@ EMAIL_USE_TLS = True
 SECRET_KEY = 'django-insecure-+6b@e1(vvzcmww1--cw8gbq7%cci6*2f)0zvi!1#5$wwlec#^t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'faq',
     'testimonial',
     'news',
+    'board',
     'emergency',
     'django_summernote',
     'tinymce',

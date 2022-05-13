@@ -43,8 +43,8 @@ class Team(models.Model):
     updated             =       models.DateTimeField(auto_now=True)
 
     class Meta:
-    	verbose_name = 'Team'
-    	verbose_name_plural = 'Team'
+    	verbose_name = 'Committee'
+    	verbose_name_plural = 'Committee'
 
     def __str__(self):
     	return self.full_name

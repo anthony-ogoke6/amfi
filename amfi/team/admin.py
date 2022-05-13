@@ -18,11 +18,3 @@ class TeamAdmin(SummernoteModelAdmin):
 
 admin.site.register(Team, TeamAdmin)
 
-
-class ProjectAdmin(SummernoteModelAdmin):
-    list_display = ['title', 'status', 'created', 'updated']
-    list_filter = ('status', 'created', 'updated')
-    summernote_fields = ('body', 'sub_body2',)
-    prepopulated_fields = {'slug':('title',)}
-    list_editable = ('status',)
-    date_hierarchy = ('created')

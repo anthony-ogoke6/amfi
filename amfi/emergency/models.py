@@ -31,6 +31,7 @@ class Emergency(models.Model):
         ('draft','Draft'),
         ('published','Published'),
     )
+    status                  =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     category               	=       models.CharField(max_length=200, blank=True, null=True)
     title               	=       models.CharField(max_length=400, blank=True, null=True)
     slug                	=       models.SlugField(max_length=200, blank=True, null=True)
@@ -44,7 +45,7 @@ class Emergency(models.Model):
     image_770_by_445        =       models.ImageField(blank=True, null=True)
     sub_title2               =       models.CharField(max_length=200, blank=True, null=True)
     sub_body2               =       models.TextField(blank=True, null=True)
-    status              	=       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
+    
     view_count          	=       models.PositiveIntegerField(default=0)
     created             	=       models.DateTimeField(auto_now_add=True)
     updated             	=       models.DateTimeField(auto_now=True)
