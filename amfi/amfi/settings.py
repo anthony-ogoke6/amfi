@@ -19,8 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'officialbrainzmedia@gmail.com'
-EMAIL_HOST_PASSWORD = 'blcnugrdsmqtrgue'
+EMAIL_HOST_USER = 'amfiinstitute@gmail.com'
+EMAIL_HOST_PASSWORD = 'kwbwtfrzozgavcsf'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 
