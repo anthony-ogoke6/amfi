@@ -19,6 +19,7 @@ from django.urls import include, path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
+from enroll import views as enroll_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +35,8 @@ urlpatterns = [
     path('team/', include('team.urls', namespace="team")),
     path('faq/', include('faq.urls', namespace="faq")),
     path('board/', include('board.urls', namespace="board")),
+    path('paystack_confirmation/', enroll_views.processPaystackWebhook, name="paystack_confirmation"),
+    path('thank_you/', enroll_views.thank_you, name="thank_you"),
     path('summernote/', include('django_summernote.urls')),
 ]
 

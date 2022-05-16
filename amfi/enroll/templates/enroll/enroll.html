@@ -25,12 +25,12 @@
 		<div class="container">
 			<div class="row align-items-center justify-content-between">
 				<div class="col-lg-8">
-					<h1 class="page-title">Join Training</h1>
+					<h1 class="page-title">Enroll</h1>
 				</div>
 				<div class="col-auto">
 					<ul class="page-breadcrumb">
 						<li><a href="{% url 'home:home' %}">Home</a></li>
-						<li>Join Us</li>
+						<li>Enroll Now</li>
 					</ul>
 				</div>
 			</div>
@@ -60,21 +60,24 @@
                                     <div class="col-lg-6">
                                         <div class="form-field mb-25">
                                             <label for="name">Your Name</label>
-                                            {{ enroll.full_name}}
+                                            {{ enroll.full_name }}
+                                            {{ enroll.full_name.errors }}
                                             <!-- <input type="text" placeholder="Enter your full name" id="name" name="full_name"> -->
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-field mb-25">
                                             <label for="email">Email Address</label>
-                                            {{ enroll.email}}
+                                            {{ enroll.email }}
+                                            {{ enroll.email.errors }}
                                             <!-- <input type="text" placeholder="support@gmail.com" id="email" name="email"> -->
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-field mb-25">
                                             <label for="phone-number">Phone Number</label>
-                                            {{ enroll.phone_number}}
+                                            {{ enroll.phone_number }}
+                                            {{ enroll.phone_number.errors }}
                                             <!-- <input type="text" placeholder="Enter your phone number" id="phone-number" name="phone_number"> -->
                                         </div>
                                     </div>
@@ -83,27 +86,40 @@
                                     <div class="col-12">
                                         <div class="form-field mb-30">
                                             <label for="message">Address</label>
-                                            {{ enroll.address}}
+                                            {{ enroll.address }}
+                                            {{ enroll.address.errors }}
                                             <!-- <textarea id="message" placeholder="Hello" name="message"></textarea> -->
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-field mb-25">
                                             <label for="subject">Training</label>
-                                            {{ enroll.training}}
+                                            {{ enroll.training }}
+                                            {{ enroll.training.errors }}
                                             <!-- <input type="text" placeholder="I would like to" id="subject" name="subject"> -->
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-field mb-25">
-                                            <label for="subject">Parish/Outstations</label>
-                                            {{ enroll.your_parish}}
+                                            <label for="subject">Select your Parish/Outstations</label>
+                                            {{ enroll.your_parish }}
+                                            {{ enroll.your_parish.errors }}
                                             <!-- <input type="text" placeholder="I would like to" id="subject" name="subject"> -->
                                         </div>
                                     </div>
+                                    {% if enroll.enter_your_parish %}
+                                    <div id="dept" class="col-lg-12">
+                                        <div class="form-field mb-25">
+                                            <label for="subject">Enter Parish/Outstation you belong to</label>
+                                            {{ enroll.enter_your_parish }}
+                                            {{ enroll.enter_your_parish.errors }}
+                                            <!-- <input type="text" placeholder="I would like to" id="subject" name="subject"> -->
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                     <div class="col-12">
                                         <div class="form-field">
-                                            <button class="main-btn">Enroll <i class="far fa-arrow-right"></i></button>
+                                            <button id="enroll_btn" class="main-btn">Enroll <i class="far fa-arrow-right"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -118,4 +134,69 @@
 {% endblock %}
 
 
+
+
+{% block java %}
+<script>
+
+
+var full_name = document.querySelector('#id_full_name');
+var email = document.querySelector('#id_email');
+var phone_number = document.querySelector('#id_phone_number');
+var address = document.querySelector('#id_address');
+var training = document.querySelector('#id_training');
+var your_parish = document.querySelector('#id_your_parish');
+
+full_name.required = true;
+email.required = true;
+phone_number.required = true;
+address.required = true;
+training.required = true;
+your_parish.required = true;
+      
+$(document).ready(function(){
+    try {
+        $("#id_your_parish")[0].selectedIndex = 0;
+        $("#id_training")[0].selectedIndex = 0;
+    }
+    catch(err) {
+        console.log(err.message);
+    }
+    var n = $("#dept");
+    n.hide();
     
+});
+
+
+
+
+$(document).ready(function() {
+    $("#id_your_parish").change(function () {
+        var selected_parish = this.value;
+        //var input_parish = $('#id_your_parish').val();
+        if (selected_parish == "Other"){
+            $("#dept").show(200);
+            //console.log("You're in the UK")
+        } else {
+            try {
+                $("#id_enter_your_parish").html("");
+                var n = $("#dept");
+                n.hide();
+            }
+            catch(err) {
+                console.log(err.message);
+            }
+        }
+    });
+});
+
+  
+
+
+
+
+
+</script>
+
+
+{% endblock %}

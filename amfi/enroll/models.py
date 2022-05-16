@@ -14,6 +14,11 @@ from tinymce import models as tinymce_models
 # Create your models here.
 
 
+import uuid
+
+# Create your models here.
+
+
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -37,6 +42,7 @@ class Enroll(models.Model):
         ('St. Jude Thadius Erunwe','St. Jude Thadius Erunwe'),
         ('St. Anthony Mary Claret Eyita','St. Anthony Mary Claret Eyita'),
         ('St. Augustine Ikorodu','St. Augustine Ikorodu'),
+        ('Other','Other'),
     )
 
     TRAINING = (
@@ -61,21 +67,21 @@ class Enroll(models.Model):
 
     
     status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
-    full_name               =       models.CharField(max_length=200, blank=True, null=True)
+    reference           =       models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    payment_status      =       models.BooleanField(default=False)
+    form_amount         =       models.PositiveIntegerField(default=0, blank=True, null=True)
+    full_name           =       models.CharField(max_length=200, blank=True, null=True)
     email               =       models.EmailField(blank=True, null=True)
     phone_number        =       models.CharField(max_length=200, blank=True, null=True)
-    address         =       models.TextField(blank=True, null=True)
-    training              =       models.CharField(max_length=1000, choices=BLANK_CHOICE_DASH + list(TRAINING))
-    your_parish              =       models.CharField(max_length=1000, choices=BLANK_CHOICE_DASH + list(PARISH))
-    
-    view_count          =       models.PositiveIntegerField(default=0)
+    address             =       models.TextField(blank=True, null=True)
+    training            =       models.CharField(max_length=1000, choices=BLANK_CHOICE_DASH + list(TRAINING))
+    your_parish         =       models.CharField(max_length=1000, choices=BLANK_CHOICE_DASH + list(PARISH))
+    enter_your_parish   =       models.TextField(blank=True, null=True)
     created             =       models.DateTimeField(auto_now_add=True)
     updated             =       models.DateTimeField(auto_now=True)
 
 
-
     class Meta:
-        ordering = ['-id']
         verbose_name = 'Enroll'
         verbose_name_plural = 'Enroll'
 

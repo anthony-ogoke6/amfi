@@ -18,6 +18,7 @@ class EnrollForm(forms.ModelForm):
         	'address',
         	'training',
         	'your_parish',
+            'enter_your_parish',
         )
 
 

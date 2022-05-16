@@ -50,7 +50,7 @@ def contact(request):
 		msg = f"Full Name: {full_name}\n \nEmail: {email}\n \nPhone Number: {phone_number}\n \nSubject: {topic}\n \nMessage: {message}"
 		message = '%s ' %(msg)
 		emailFrom = settings.EMAIL_HOST_USER
-		emailTo = [settings.EMAIL_HOST_USER, email]
+		emailTo = [settings.EMAIL_HOST_USER]
 		send_mail(subject, message, emailFrom, emailTo )
 		messages.success(request, "Message sent successfully, we will reach out to you shortly", extra_tags='success')
 		return redirect('contact:contact')

@@ -35,6 +35,7 @@ class Training(models.Model):
     category               	=       models.CharField(max_length=200, blank=True, null=True)
     title               	=       models.CharField(max_length=400, blank=True, null=True)
     slug                	=       models.SlugField(max_length=200, blank=True, null=True)
+    amount                  =       models.PositiveIntegerField(blank=True, null=True)
     location                =       models.CharField(max_length=200, blank=True, null=True)
     facilitator              =       models.CharField(max_length=200, blank=True, null=True)
     image_570_by_640    	=       models.ImageField(blank=True, null=True)
