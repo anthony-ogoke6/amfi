@@ -1,0 +1,172 @@
+{% load static %}
+
+
+<!--====== Header Start ======-->
+	<header class="site-header sticky-header transparent-header topbar-transparent">
+		<div class="header-topbar d-none d-sm-block">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-auto">
+						<ul class="contact-info">
+							<li><a href="#"><i class="far fa-envelope"></i>amfist1982@gmail.com</a></li>
+							<li><a href="#"><i class="far fa-map-marker-alt"></i> St Augustines Catholic Churcu, Ikorodu, Lagos, Nigeria.</a></li>
+						</ul>
+					</div>
+					<div class="col-auto d-none d-md-block">
+						<ul class="social-icons">
+							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+							<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar-wrapper">
+			<div class="container">
+				<div class="navbar-inner">
+					<div class="site-logo">
+						<a href="{% url 'home:home' %}"><img src="{% static 'assets/img/amfi.png' %}" alt="AMFI" style="width: 70px;"></a>
+					</div>
+					<div class="nav-menu">
+						<ul>
+							{% url 'home:home' as home %}
+					        {% url 'projects:projects' as projects %}
+					        {% url 'training:training' as training %}
+					        {% url 'news:news' as news %}
+					        {% url 'about:about' as about %}
+					        {% url 'contact:contact' as contact %}
+					        {% url 'team:team' as team %}
+					        {% url 'faq:faq' as faq %}
+					        {% url 'testimonial:testimonial' as testimonial %}
+							<li class="{% if request.path == home %}current{% endif %}">
+								<a href="{% url 'home:home' %}">Home</a>
+								<!-- <ul class="submenu">
+									<li><a href="index.html">Home One</a></li>
+									<li><a href="index-2.html">Home Two</a></li>
+								</ul> -->
+							</li>
+							<!-- <li>
+								<a href="project-1.html">Project</a>
+								<ul class="submenu">
+									<li><a href="project-1.html">Project One</a></li>
+									<li><a href="project-2.html">Project Two</a></li>
+									<li><a href="project-3.html">Project Three</a></li>
+									<li><a href="project-details.html">Project Details</a></li>
+								</ul>
+							</li> -->
+							<li class="{% if request.path == projects %}current{% endif %}">
+								<a href="{% url 'projects:projects' %}">Projects</a>
+							</li>
+							<li class="{% if request.path == training %}current{% endif %}">
+								<a href="{% url 'training:training' %}">Training</a>
+							</li>
+							<li class="{% if request.path == contact %}current{% endif %}"><a href="{% url 'contact:contact' %}">Contact Us</a></li>
+							<!-- <li class="{% if request.path == news %}current{% endif %}">
+								<a href="{% url 'news:news' %}">News</a>
+							</li> -->
+							<!-- <li>
+								<a href="news-standard.html">News</a>
+								<ul class="submenu">
+									<li><a href="news-standard.html">News Standard</a></li>
+									<li><a href="news-details.html">News Details</a></li>
+								</ul>
+							</li> -->
+							<li class="{% if request.path == About %}current{% endif %}" >
+								<a>More</a>
+								<ul class="submenu">
+									<li><a href="{% url 'about:about' %}">About</a></li>
+									<!-- <li><a href="company-overview.html">Institution Objectives</a></li> -->
+									<li><a href="{% url 'team:team' %}">Team Members</a></li>
+									<!-- <li><a href="pricing.html">Pricing</a></li> -->
+									<!-- <li><a href="{% url 'faq:faq' %}">FAQ</a></li> -->
+									<li><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
+								</ul>
+							</li>
+
+						</ul>
+					</div>
+					<div class="navbar-extra d-flex align-items-center">
+						<!-- <a href="events.html" class="main-btn nav-btn d-none d-sm-inline-block">
+							Donate Now <i class="far fa-arrow-right"></i>
+						</a> -->
+						<a href="#" class="nav-toggler">
+                            <span></span>
+                        </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mobile-menu-panel">
+			<div class="panel-logo">
+				<a href="{% url 'home:home' %}"><img src="{% static 'assets/img/amfi.png' %}" alt="AMFI" style="width: 70px;"></a>
+			</div>
+			<ul class="panel-menu">
+				{% url 'home:home' as home %}
+		        {% url 'projects:projects' as projects %}
+		        {% url 'training:training' as training %}
+		        {% url 'news:news' as news %}
+		        {% url 'about:about' as about %}
+		        {% url 'contact:contact' as contact %}
+		        {% url 'team:team' as team %}
+		        {% url 'faq:faq' as faq %}
+		        {% url 'testimonial:testimonial' as testimonial %}
+				<li class="{% if request.path == home %}current{% endif %}">
+					<a href="{% url 'home:home' %}">Home</a>
+					<!-- <ul class="submenu">
+						<li><a href="index.html">Home One</a></li>
+						<li><a href="index-2.html">Home Two</a></li>
+					</ul> -->
+				</li>
+				<!-- <li>
+					<a href="project-1.html">Project</a>
+					<ul class="submenu">
+						<li><a href="project-1.html">Project One</a></li>
+						<li><a href="project-2.html">Project Two</a></li>
+						<li><a href="project-3.html">Project Three</a></li>
+						<li><a href="project-details.html">Project Details</a></li>
+					</ul>
+				</li> -->
+				<li class="{% if request.path == projects %}current{% endif %}">
+					<a href="{% url 'projects:projects' %}">Projects</a>
+				</li>
+				<li class="{% if request.path == training %}current{% endif %}">
+					<a href="{% url 'training:training' %}">Training</a>
+				</li>
+				<li class="{% if request.path == contact %}current{% endif %}"><a href="{% url 'contact:contact' %}">Contact Us</a></li>
+				<!-- <li class="{% if request.path == news %}current{% endif %}">
+					<a href="{% url 'news:news' %}">News</a>
+				</li> -->
+				<!-- <li>
+					<a href="news-standard.html">News</a>
+					<ul class="submenu">
+						<li><a href="news-standard.html">News Standard</a></li>
+						<li><a href="news-details.html">News Details</a></li>
+					</ul>
+				</li> -->
+				<li class="{% if request.path == about %}current{% endif %}">
+					<a>More</a>
+					<ul class="submenu">
+						<li class="{% if request.path == about %}current{% endif %}"><a href="{% url 'about:about' %}">About</a></li>
+						<!-- <li><a href="company-overview.html">Institution's Objectives</a></li> -->
+						<li class="{% if request.path == team %}current{% endif %}"><a href="{% url 'team:team' %}">Team Members</a></li>
+						<!-- <li><a href="pricing.html">Pricing</a></li> -->
+						<!-- <li><a href="{% url 'faq:faq' %}">FAQ</a></li> -->
+						<li class="{% if request.path == testimonial %}current{% endif %}"><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
+					</ul>
+				</li>
+
+			</ul>
+			<div class="panel-extra">
+				<!-- <a href="#" class="main-btn btn-white">
+					Donate Now <i class="far fa-arrow-right"></i>
+				</a> -->
+			</div>
+			<a href="#" class="panel-close">
+				<i class="fal fa-times"></i>
+			</a>
+		</div>
+	</header>
+	<!--====== Header End ======-->
