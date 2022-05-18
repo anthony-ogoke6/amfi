@@ -65,9 +65,12 @@
                     {% endif %}
                     <div class="event-content">
                         <ul class="meta">
+                            {% if i.category  %}
                             <li>
-                                <a href="{{ i.get_absolute_url }}" class="category">Training</a>
+                                <a href="{{ i.get_absolute_url }}" class="category">{{ i.category }}</a>
                             </li>
+                            {% endif %}
+                            
                             {% if i.location  %}
                             <li>
                                 <a href="{{ i.get_absolute_url }}" class="date"><i class="fal fa-map-marker-alt"></i>{{ i.location }}</a>
@@ -77,62 +80,18 @@
                         {% if i.title  %}
                         <h4 class="event-title"><a href="{{ i.get_absolute_url }}">{{ i.title }}</a></h4>
                         {% endif %}
-                        {% if i.body  %}
+                        <!-- {% if i.body  %}
                         <p>
                             {{ i.body|safe|slice:":100" }}...
                         </p>
-                        {% endif %}
+                        {% endif %} -->
                     </div>
                     <div class="event-button">
                         <a href="{{ i.get_absolute_url }}" class="main-btn bordered-btn">Join Training <i class="far fa-arrow-right"></i></a>
                     </div>
                 </div>
                 {% endfor %}
-                {% else %}
-                <div class="single-event-item mb-30 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="event-thumb">
-                        <img src="{% static 'assets/img/event/02.jpg' %}" alt="Image">
-                    </div>
-                    <div class="event-content">
-                        <ul class="meta">
-                            <li>
-                                <a href="project-details.html" class="category">Fashion Schooling</a>
-                            </li>
-                            <li>
-                                <a href="#" class="date"><i class="fal fa-map-marker-alt"></i>St. Augustines Ikorodu.</a>
-                            </li>
-                        </ul>
-                        <h4 class="event-title"><a href="#">Fashion Designing</a></h4>
-                        <p>
-                            This training is for trainees who want to venture into Fashion designing, Mmake-over, Gele tying and Bead making
-                        </p>
-                    </div>
-                    <div class="event-button">
-                        <a href="project-details.html" class="main-btn bordered-btn">Join Training <i class="far fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="single-event-item mb-30 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="event-thumb">
-                        <img src="{% static 'assets/img/event/03.jpg' %}" alt="Image">
-                    </div>
-                    <div class="event-content">
-                        <ul class="meta">
-                            <li>
-                                <a href="project-details.html" class="category">Web/Software Development</a>
-                            </li>
-                            <li>
-                                <a href="#" class="date"><i class="fal fa-map-marker-alt"></i>St. Augustines Ikorodu.</a>
-                            </li>
-                        </ul>
-                        <h4 class="event-title"><a href="#">Web App Development</a></h4>
-                        <p>
-                            This training is for those willing to venture into software development.
-                        </p>
-                    </div>
-                    <div class="event-button">
-                        <a href="project-details.html" class="main-btn bordered-btn">Join Training <i class="far fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                
                 {% endif %}
                 
                 

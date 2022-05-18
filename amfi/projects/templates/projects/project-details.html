@@ -59,16 +59,21 @@
 					</div>
 					{% else %}
 					<div class="project-thumb mb-md-50">
-						<img src="{% static 'assets/img/project/project-details.jpg' %}" alt="Image">
+						<img src="{% static 'assets/img/project/default.png' %}" alt="Image">
 					</div>
 					{% endif %}
 				</div>
 				<div class="col-lg-6">
 					<div class="project-summery" style="padding: unset;">
+						{% if project.category %}
 						<a class="category">{{ project.category }}</a>
+						{% endif %}
+
+						{% if project.category %}
 						<h3 class="project-title">
 							{{ project.title }}
 						</h3>
+						{% endif %}
 
 						<div class="meta">
 							<div class="author">
@@ -77,27 +82,27 @@
 							</div>
 							<!-- <a class="date"><i class="far fa-calendar-alt"></i>{{ project.created|date:"D, d M Y" }}</a> -->
 						</div>
-						<div class="project-funding-info">
+						<!-- <div class="project-funding-info">
 							<div class="info-box">
 								<span>Openning Hours</span>
 								<span class="info-title">Mon-Sat</span>
 								<span class="info-title">8am-5pm</span>
 								<br>
 							</div>
-							<!-- <div class="info-box">
+							<div class="info-box">
 								<span>Working Hours</span>
 								<span class="info-title">Mon-Fri:8am-5pm</span>
-							</div> -->
-						</div>
-						<div class="project-raised clearfix">
+							</div>
+						</div> -->
+						<!-- <div class="project-raised clearfix">
 							<div class="d-flex align-items-center justify-content-between">
 								<div class="raised-label">Supervisor</div><span class="info-title">AMFI Admin</span>
-								<!-- <div class="percent-raised">60%</div> -->
+								<div class="percent-raised">60%</div>
 							</div>
 							<div class="stats-bar" data-value="100">
 								<div class="bar-line"></div>
 							</div>
-						</div>
+						</div> -->
 						<!-- <div class="project-form">
 							<form action="#">
 								<ul class="donation-amount">
@@ -120,15 +125,29 @@
 								<div class="row justify-content-center">
 									<div class="col-lg-8">
 										<div class="description-content">
+											{% if project.sub_title %}
 											<h4 class="description-title">{{ project.sub_title }}</h4>
+											{% endif %}
+
+											{% if project.body %}
 											<p>
 												{{ project.body|safe }}
 											</p>
+											{% endif %}
+
+											{% if project.image_770_by_445 %}
 											<img class="mt-50 mb-50" src="{{ project.image_770_by_445.url }}" alt="Image">
+											{% endif %}
+
+											{% if project.sub_title2 %}
 											<h4 class="description-title">{{ project.sub_title2 }}</h4>
+											{% endif %}
+
+											{% if project.sub_body2 %}
 											<p>
 												{{ project.sub_body2|safe }}
 											</p>
+											{% endif %}
 											<!-- <ul class="description-list">
 												<li>Standard Lorem Sum Passage Used</li>
 												<li>Build A Music Manager With Nuxt</li>
@@ -142,12 +161,12 @@
 									</div>
 									<div class="col-lg-4 col-md-6 col-sm-10">
 										<div class="rewards-box mt-md-50">
-											<h4 class="title">Advertise Here</h4>
-											<img src="{% static 'assets/img/project/project-rewards.jpg' %}" alt="Image">
+											<!-- <h4 class="title">Advertise Here</h4> -->
+											<img src="{% static 'assets/img/project/advert.png' %}" alt="Image">
 											<!-- <span class="rewards-count"><span>$530</span> or More</span> -->
-											<p>
+											<!-- <p>
 												Contact AMFI to advertise here
-											</p>
+											</p> -->
 											<!-- <div class="delivery-date">
 												<span>25 Mar 20210</span>
 												Estimated Delivery

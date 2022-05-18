@@ -5,7 +5,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 
 class TrainingAdmin(SummernoteModelAdmin):
-    list_display = ['title', 'facilitator', 'slug', 'status', 'created', 'updated']
+    list_display = ['title', 'facilitator', 'category', 'slug', 'status', 'created', 'updated']
     list_filter = ('status', 'created', 'updated')
     summernote_fields = ('body', 'sub_body2',)
     prepopulated_fields = {'slug':('title',)}

@@ -53,6 +53,11 @@
                         <div class="member-photo">
                             {% if i.image_370_by_410 %}
                             <img src="{{ i.image_370_by_410.url }}" alt="{{ i.full_name }}">
+
+                            {% else %}
+
+                            <img src="{% static 'assets/img/team/01.png' %}" alt="Member">
+
                             {% endif %}
                         </div>
                         <div class="member-info">

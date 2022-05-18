@@ -25,7 +25,7 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-xl-10">
-						<!-- <span class="tagline wow fadeInUp" data-wow-delay="0.3s">AMFI</span> -->
+						<span class="tagline wow fadeInUp" data-wow-delay="0.3s">AMFI</span>
 						<h2 class="title wow fadeInUp" data-wow-delay="0.4s">Augustine Mission Foundation Ikorodu.</h2>
 						<!-- <a href="project-1.html" class="main-btn wow fadeInUp" data-wow-delay="0.5s">
 							Explore Projects <i class="far fa-arrow-right"></i>
@@ -173,7 +173,7 @@
 								<div class="author-img">
 									<img src="{% static 'assets/img/author-thumbs/01.png' %}" alt="Image">
 								</div>
-								<h5 class="name">Princess Doralis Ugbobuaku Ihekerem</h5>
+								<h5 class="name">Princess Ugbobuaku Doralis Chukwunyerem Ihekerem (Nee-Ibenacho)</h5>
 								<span class="title">Chairperson</span>
 							</div>
 						</div>
@@ -208,26 +208,28 @@
 							<div class="cats">
 
 								<a href="{{ i.get_absolute_url }}">Training</a>
-								}
 							</div>
 							
 							<h2 class="title">
 								<a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
 							</h2>
-							<div class="author">
-								<!-- <img src="" alt="Thumb"> -->
+							<!-- <div class="author">
+								<img src="" alt="Thumb">
 								<a href="{{ i.get_absolute_url }}">Facilitator: {{ i.facilitator }}</a>
-							</div>
-							<!-- <div class="project-stats">
+							</div> -->
+							<div class="project-stats">
 								<div class="stats-value">
-									<span class="value-title">Raised <span class="value">5M NGN</span></span>
-									<span class="stats-percentage">79%</span>
+									<span class="value-title">Pick your forms <span class="value">Now!!!</span></span>
+									
 								</div>
-								<div class="stats-bar" data-value="79">
+								<div class="stats-bar" data-value="100">
 									<div class="bar-line"></div>
 								</div>
-							</div> -->
-							<span class="date"><i class="far fa-calendar-alt"></i> {{ i.created|date:"D, d M Y" }}</span>
+							</div>
+							<!-- <span class="date"><i class="far fa-calendar-alt"></i> {{ i.created|date:"D, d M Y" }}</span>
+							 -->
+
+							 <a href="{{ i.get_absolute_url }}" class="main-btn bordered-btn">View More<i class="far fa-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
@@ -491,18 +493,20 @@
 				<div class="row project-slider-two project-items project-style-four">
 				{% if projects %}
 				{% for i in projects %}
-				<div class="col">
+					<div class="col">
 						<div class="project-item">
 							{% if i.image_770_by_445  %}
 							<div class="thumb" style="background-image: url({{ i.image_770_by_445.url }});"></div>
 							{% elif i.image_570_by_640 %}
-							<div class="thumb" style="background-image: url({{ i.image_770_by_445.url }});"></div>
+							<div class="thumb" style="background-image: url({{ i.image_570_by_640.url }});"></div>
 							{% else %}
 							<div class="thumb" style="background-image: url({% static 'assets/img/project/project-slider-02.png' %});"></div>
 							{% endif %}
 							<div class="content">
 								<div class="cats">
-									<a>{{ i.category }}</a>
+									{% if i.category %}
+									<a href="#">{{ i.category }}</a>
+									{% endif %}
 								</div>
 
 								<!-- <div class="author">
@@ -510,24 +514,26 @@
 									<a href="#">James W. Barrows</a>
 								</div> -->
 
+								{% if i.title %}
+
 								<h5 class="title">
-									<a href="project-details.html">{{ i.title }}</a>
+									<a href="{{ i.get_absolute_url }}">{{ i.title }}</a>
 								</h5>
+
+								{% endif %}
+
 								<div class="project-stats">
 									<div class="stats-value">
-									<span class="value-title">{{ i.body|safe|slice:":100" }}...</span>
-									
-								</div>
-									<div class="stats-bar" data-value="100">
+										<span class="value-title">Pick your forms <span class="value">Now!!!</span></span>
+										<!-- <span class="stats-percentage">83%</span> -->
+									</div>
+									<div class="stats-bar" data-value="90">
 										<div class="bar-line"></div>
 									</div>
 								</div>
-								<div class="col-12">
-		                    		<div class="view-more-btn text-center mt-40">
-		                    			<!-- <span class="date"><i class="far fa-calendar-alt"></i>{{ i.created|date:"D, d M Y" }}</span> -->
-		                        		<a href="project-details.html" class="main-btn bordered-btn">View More<i class="far fa-arrow-right"></i></a>
-		                    		</div>
-		                		</div>
+								<!-- <span class="date"><i class="far fa-calendar-alt"></i>{{ i.created|date:"D, d M Y" }}</span> -->
+
+								<a href="{{ i.get_absolute_url }}" class="main-btn bordered-btn">View More<i class="far fa-arrow-right"></i></a>
 							</div>
 						</div>
 					</div>
