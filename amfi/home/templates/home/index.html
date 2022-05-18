@@ -269,7 +269,7 @@
 								{% if testimonials %}
                 				{% for i in testimonials %}
 								<li data-tooltip="true" data-placement="top" data-original-title="{{ i.full_name }}">
-									<a href="#"><img src="{{ i.image_50_by_50.url }}" alt="{{ i.full_name }}" style="width: 50px; height: 50px;"></a>
+									<a href="{{ i.get_absolute_url }}"><img src="{{ i.image_50_by_50.url }}" alt="{{ i.full_name }}" style="width: 50px; height: 50px;"></a>
 								</li>
 								{% endfor %}
 								{% endif %}
@@ -505,7 +505,7 @@
 							<div class="content">
 								<div class="cats">
 									{% if i.category %}
-									<a href="#">{{ i.category }}</a>
+									<a href="{{ i.get_absolute_url }}">{{ i.category }}</a>
 									{% endif %}
 								</div>
 
