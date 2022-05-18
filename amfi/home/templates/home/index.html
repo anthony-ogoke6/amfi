@@ -88,7 +88,7 @@
 				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.2s">
 					<div class="fancy-box-item mt-30">
 						<div class="icon">
-							<i class="flaticon-tshirt-1"></i>
+							<i class="flaticon-tshirt"></i>
 						</div>
 						<div class="content">
 							<h4 class="title"><a>Fashion</a></h4>
@@ -99,22 +99,58 @@
 				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.3s">
 					<div class="fancy-box-item mt-30">
 						<div class="icon">
-							<i class="flaticon-video-camera"></i>
+							<i class="flaticon-open-box"></i>
 						</div>
 						<div class="content">
-							<h4 class="title"><a>Photography & Video</a></h4>
-							<p>Editing</p>
+							<h4 class="title"><a>Catering</a></h4>
+							<p>Chips/Cake Making</p>
 						</div>
 					</div>
 				</div>
 				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
 					<div class="fancy-box-item mt-30">
 						<div class="icon">
+							<i class="flaticon-phone-call-1"></i>
+						</div>
+						<div class="content">
+							<h4 class="title"><a>Communication</a></h4>
+							<p>Management</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
+					<div class="fancy-box-item mt-30">
+						<div class="icon">
+							<i class="flaticon-reading-book"></i>
+						</div>
+						<div class="content">
+							<h4 class="title"><a>Project</a></h4>
+							<p>Writing</p>
+						</div>
+					</div>
+				</div>
+				
+
+				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
+					<div class="fancy-box-item mt-30">
+						<div class="icon">
+							<i class="flaticon-video-camera"></i>
+						</div>
+						<div class="content">
+							<h4 class="title"><a>Editing </a></h4>
+							<p>Photography & Video</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
+					<div class="fancy-box-item mt-30">
+						<div class="icon">
 							<i class="flaticon-project-management"></i>
 						</div>
 						<div class="content">
-							<h4 class="title"><a>Project Management</a></h4>
-							<p>Administration</p>
+							<h4 class="title"><a>Project</a></h4>
+							<p>Management</p>
 						</div>
 					</div>
 				</div>
@@ -193,10 +229,10 @@
 		<div class="container-fluid fluid-extra-padding">
 			<div class="common-heading text-center color-version-white mb-60">
 				<span class="tagline">
-					<i class="fas fa-plus"></i> Training
-					<span class="heading-shadow-text">Our Trainings</span>
+					<i class="fas fa-plus"></i> Training/Empowerment
+					<span class="heading-shadow-text">Our Trainings & Empowerment</span>
 				</span>
-				<h2 class="title">Explore Our Trainings</h2>
+				<h2 class="title">Explore</h2>
 			</div>
 			<div class="row project-slider-one project-items project-style-one no-shadow">
 				{% if training %}
@@ -207,7 +243,8 @@
 						<div class="content">
 							<div class="cats">
 
-								<a href="{{ i.get_absolute_url }}">Training</a>
+								<!-- <a href="{{ i.get_absolute_url }}">Training</a> -->
+								<a href="{{ i.get_absolute_url }}">{{ i.category }}</a>
 							</div>
 							
 							<h2 class="title">
@@ -229,7 +266,7 @@
 							<!-- <span class="date"><i class="far fa-calendar-alt"></i> {{ i.created|date:"D, d M Y" }}</span>
 							 -->
 
-							 <a href="{{ i.get_absolute_url }}" class="main-btn bordered-btn">View More<i class="far fa-arrow-right"></i></a>
+							 <a href="{{ i.get_absolute_url }}" class="main-btn bordered-btn">Join Now<i class="far fa-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
