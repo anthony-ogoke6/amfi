@@ -44,19 +44,21 @@ def home(request):
 	projects = Project.objects.all()
 	training = Training.objects.all()
 	try:
-		fashion = Training.objects.get(slug="fashion-designing").get_absolute_url()
+		fashion = Training.objects.get(slug="fashion-designing")
 	except:
 		fashion = ""
 
 	try:
-		photo = Training.objects.get(slug="photography-video-editing").get_absolute_url()
+		photo = Training.objects.get(slug="photography-video-editing")
 	except:
 		photo = ""
 
 	try:
-		chips = Training.objects.get(slug="plantain-production").get_absolute_url()
+		chips = Training.objects.get(slug="plantain-production")
 	except:
 		chips = ""
+
+	print(chips)
 	context = {
         'about': about,
         'testimonials': testimonials,

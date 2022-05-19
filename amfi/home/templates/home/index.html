@@ -85,31 +85,57 @@
 				</div>
 			</div>
 			<div class="row justify-content-center fancy-icon-boxes">
-				<a href="{{ fashion }}">
 				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.2s">
+					{% if fashion != "" %}
+					<a href="{{ fashion.get_absolute_url }}">
 					<div class="fancy-box-item mt-30">
 						<div class="icon">
 							<i class="flaticon-tshirt"></i>
 						</div>
 						<div class="content">
-							<h4 class="title"><a href="{{ fashion }}">Fashion</a></h4>
-							<p><a href="{{ fashion }}">Clothe Making</a></p>
+							<h4 class="title"><a href="{{ fashion.get_absolute_url }}">Fashion</a></h4>
+							<p><a href="{{ fashion.get_absolute_url }}">Clothe Making</a></p>
 						</div>
 					</div>
-				</a>
+					</a>
+					{% else %}
+					<div class="fancy-box-item mt-30">
+						<div class="icon">
+							<i class="flaticon-tshirt"></i>
+						</div>
+						<div class="content">
+							<h4 class="title"><a>Fashion</a></h4>
+							<p><a>Clothe Making</a></p>
+						</div>
+					</div>
+
+					{% endif %}
 				</div>
 				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.3s">
-					<a href="{{ chips }}">
+					{% if chips != "" %}
+					<a href="{{ chips.get_absolute_url }}">
 					<div class="fancy-box-item mt-30">
 						<div class="icon">
 							<i class="flaticon-open-box"></i>
 						</div>
 						<div class="content">
-							<h4 class="title"><a href="{{ chips }}">Catering</a></h4>
-							<p><a href="{{ chips }}">Chips/Cake Making</a></p>
+							<h4 class="title"><a href="{{ chips.get_absolute_url }}">Catering</a></h4>
+							<p><a href="{{ chips.get_absolute_url }}">Chips/Cake Making</a></p>
 						</div>
 					</div>
-				</a>
+					</a>
+					{% else %}
+
+					<div class="fancy-box-item mt-30">
+						<div class="icon">
+							<i class="flaticon-open-box"></i>
+						</div>
+						<div class="content">
+							<h4 class="title"><a href="{{ chips.get_absolute_url }}">Catering</a></h4>
+							<p><a href="{{ chips.get_absolute_url }}">Chips/Cake Making</a></p>
+						</div>
+					</div>
+					{% endif %}
 				</div>
 				<!-- <div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
 					<div class="fancy-box-item mt-30">
@@ -136,17 +162,30 @@
 				
 
 				<div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
-					<a href="{{ photo }}">
+					{% if photo != "" %}
+					<a href="{{ photo.get_absolute_url }}">
 					<div class="fancy-box-item mt-30">
 						<div class="icon">
 							<i class="flaticon-video-camera"></i>
 						</div>
 						<div class="content">
-							<h4 class="title"><a href="{{ photo }}">Editing </a></h4>
-							<p><a href="{{ photo }}">Photography & Video</a></p>
+							<h4 class="title"><a href="{{ photo.get_absolute_url }}">Editing </a></h4>
+							<p><a href="{{ photo.get_absolute_url }}">Photography & Video</a></p>
 						</div>
 					</div>
 					</a>
+					{% else %}
+
+					<div class="fancy-box-item mt-30">
+						<div class="icon">
+							<i class="flaticon-video-camera"></i>
+						</div>
+						<div class="content">
+							<h4 class="title"><a>Editing </a></h4>
+							<p><a>Photography & Video</a></p>
+						</div>
+					</div>
+					{% endif %}
 				</div>
 
 				<!-- <div class="col-xl-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
