@@ -43,9 +43,20 @@ def home(request):
 	testimonials = Testimonial.objects.all()
 	projects = Project.objects.all()
 	training = Training.objects.all()
-	fashion = Training.objects.get(slug="fashion-designing")
-	photo = Training.objects.get(slug="photography-video-editing")
-	chips = Training.objects.get(slug="plantain-production")
+	try:
+		fashion = Training.objects.get(slug="fashion-designing").get_absolute_url()
+	except:
+		fashion = ""
+
+	try:
+		photo = Training.objects.get(slug="photography-video-editing").get_absolute_url()
+	except:
+		photo = ""
+
+	try:
+		chips = Training.objects.get(slug="plantain-production").get_absolute_url()
+	except:
+		chips = ""
 	context = {
         'about': about,
         'testimonials': testimonials,
