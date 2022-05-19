@@ -43,11 +43,17 @@ def home(request):
 	testimonials = Testimonial.objects.all()
 	projects = Project.objects.all()
 	training = Training.objects.all()
+	fashion = Training.objects.get(slug="fashion-designing")
+	photo = Training.objects.get(slug="photography-video-editing")
+	chips = Training.objects.get(slug="plantain-production")
 	context = {
         'about': about,
         'testimonials': testimonials,
         'projects': projects,
         'training': training,
+        'fashion': fashion,
+        'photo': photo,
+        'chips': chips,
         }
 	return render(request, 'home/index.html', context)
 
