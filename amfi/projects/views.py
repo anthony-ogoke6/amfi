@@ -44,6 +44,7 @@ def projects(request):
 	return render(request, 'projects/project-2.html', context)
 
 
+
 def project_details(request, id, slug):
 	project_increament = get_object_or_404(Project, id=id, slug=slug)
 	project_increament.view_count +=1
