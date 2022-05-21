@@ -29,6 +29,7 @@ from testimonial.models import *
 from about.models import *
 from projects.models import *
 from training.models import Training
+from .models import *
 
 
 import logging
@@ -43,6 +44,7 @@ def home(request):
 	testimonials = Testimonial.objects.all()
 	projects = Project.objects.all()
 	training = Training.objects.all()
+	home_image = HomeImages.objects.all()
 	try:
 		fashion = Training.objects.get(slug="fashion-designing")
 	except:
@@ -67,6 +69,7 @@ def home(request):
         'fashion': fashion,
         'photo': photo,
         'chips': chips,
+        'home_image': home_image,
         }
 	return render(request, 'home/index.html', context)
 

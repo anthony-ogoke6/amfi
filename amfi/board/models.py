@@ -51,3 +51,9 @@ class Board(models.Model):
     def get_absolute_url(self):
         return reverse("board:board_details", args=[self.id, self.slug])
 
+
+
+@receiver(pre_save, sender=Board)
+def pre_save_slug1(sender, **kwargs):
+    slug = slugify(kwargs['instance'].full_name)
+    kwargs['instance'].slug = slug

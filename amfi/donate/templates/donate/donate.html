@@ -1,0 +1,100 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+
+{% block title %}
+{{ block.super }} Donate
+{% endblock %}
+
+
+
+	{% block nav %}
+
+	{% include 'about/header_about.html' %}
+
+	{% endblock %}
+
+
+	{% block jumbotron %}
+
+	<!--====== Page Title Start ======-->
+	<section class="page-title-area">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-8">
+					<h1 class="page-title">Company Overview</h1>
+				</div>
+				<div class="col-auto">
+					<ul class="page-breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li>Company Overview</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Page Title End ======-->
+	{% endblock %}
+
+	
+{% block donate %}
+	<!--====== Feature Section Start ======-->
+	<section class="feature-section feature-section-one section-gap-extra-bottom">
+		<div class="container">
+			<div class="row justify-content-lg-between justify-content-center align-items-center">
+				<div class="col-xl-4 col-lg-5 col-md-10">
+					<div class="feature-content mb-md-70">
+						<div class="common-heading mb-45">
+							<span class="tagline">
+								<i class="fas fa-plus"></i> What we do
+								<span class="heading-shadow-text">Features</span>
+							</span>
+							<h2 class="title">Why Choose us</h2>
+						</div>
+						<!-- Fancy Icon List -->
+						<div class="fancy-icon-list">
+							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.1s">
+								<div class="icon">
+									<i class="flaticon-debit-card"></i>
+								</div>
+								<div class="content">
+									<h4 class="title">Fast & Easy Payouts</h4>
+									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
+								</div>
+							</div>
+							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.2s">
+								<div class="icon">
+									<i class="flaticon-payment"></i>
+								</div>
+								<div class="content">
+									<h4 class="title">Global Payment Processing</h4>
+									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
+								</div>
+							</div>
+							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.3s">
+								<div class="icon">
+									<i class="flaticon-wallet-1"></i>
+								</div>
+								<div class="content">
+									<h4 class="title">Many Payment Options</h4>
+									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-7 col-md-10">
+					<div class="feature-img">
+						<img src="assets/img/feature-img.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Feature Section End ======-->
+{% endblock %}
+
+	

@@ -14,6 +14,7 @@ from django.conf import settings
 
 
 
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self).get_queryset().filter(status="published")
@@ -56,3 +57,46 @@ class Home(models.Model):
     def get_absolute_url(self):
         return reverse("home:home_detail", args=[self.id, self.slug])
 
+
+
+@receiver(pre_save, sender=Home)
+def pre_save_slug1(sender, **kwargs):
+    slug = slugify(kwargs['instance'].title)
+    kwargs['instance'].slug = slug
+
+
+
+
+
+class HomeImages(models.Model):
+    objects = models.Manager()      #Our default Manager
+    published = PublishedManager()  #Our Custom Model Manager
+
+    STATUS_CHOICES = (
+        ('draft','Draft'),
+        ('published','Published'),
+    )
+
+    status              =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
+    image_big               =       models.ImageField(blank=True, null=True)
+    image_small_1               =       models.ImageField(blank=True, null=True)
+    image_small_2               =       models.ImageField(blank=True, null=True)
+    created             =       models.DateTimeField(auto_now_add=True)
+    updated             =       models.DateTimeField(auto_now=True)
+
+
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = 'HomeImage'
+        verbose_name_plural = 'Home Images'
+
+    def __str__(self):
+        return ''
+
+
+
+@receiver(pre_save, sender=Home)
+def pre_save_slug1(sender, **kwargs):
+    slug = slugify(kwargs['instance'].title)
+    kwargs['instance'].slug = slug

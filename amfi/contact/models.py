@@ -54,6 +54,12 @@ class Contact(models.Model):
         return self.title
 
 
+@receiver(pre_save, sender=Contact)
+def pre_save_slug1(sender, **kwargs):
+    slug = slugify(kwargs['instance'].title)
+    kwargs['instance'].slug = slug
+
+
 
 
 # Create your models here.

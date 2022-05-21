@@ -63,3 +63,9 @@ class About(models.Model):
     def get_absolute_url(self):
         return reverse("about:about_detail", args=[self.id, self.slug])
 
+
+
+@receiver(pre_save, sender=About)
+def pre_save_slug1(sender, **kwargs):
+    slug = slugify(kwargs['instance'].title)
+    kwargs['instance'].slug = slug

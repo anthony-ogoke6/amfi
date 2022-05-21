@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     'emergency',
     'django_summernote',
     'tinymce',
+    'donate',
+
 
 ]
 

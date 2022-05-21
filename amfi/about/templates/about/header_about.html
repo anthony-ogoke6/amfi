@@ -74,23 +74,24 @@
 									<li><a href="news-details.html">News Details</a></li>
 								</ul>
 							</li> -->
-							<li class="{% if request.path == about or request.path == team or request.path == board or request.path == testimonial %}current{% endif %}" >
+							<li class="{% if request.path == about or request.path == news or request.path == team or request.path == board or request.path == testimonial %}current{% endif %}" >
 								<a>More</a>
 								<ul class="submenu">
+									<!-- <li class="{% if request.path == news %}current{% endif %}"><a href="{% url 'news:news' %}">News</a></li> -->
 									<li class="{% if request.path == about %}current{% endif %}"><a href="{% url 'about:about' %}">About</a></li>
 									<!-- <li><a href="company-overview.html">Institution Objectives</a></li> -->
 									<li class="{% if request.path == team %}current{% endif %}"><a href="{% url 'team:team' %}">Committee</a></li>
 									<li class="{% if request.path == board %}current{% endif %}"><a href="{% url 'board:board' %}">Board of Trustees</a></li>
 									<!-- <li><a href="pricing.html">Pricing</a></li> -->
 									<!-- <li><a href="{% url 'faq:faq' %}">FAQ</a></li> -->
-									<li><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
+									<li class="{% if request.path == testimonial %}current{% endif %}"><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
 								</ul>
 							</li>
 							
 						</ul>
 					</div>
 					<div class="navbar-extra d-flex align-items-center">
-						<!-- <a href="events.html" class="main-btn nav-btn d-none d-sm-inline-block">
+						<!-- <a href="" class="main-btn nav-btn d-none d-sm-inline-block">
 							Donate Now <i class="far fa-arrow-right"></i>
 						</a> -->
 						<a href="#" class="nav-toggler">
@@ -148,22 +149,23 @@
 						<li><a href="news-details.html">News Details</a></li>
 					</ul>
 				</li> -->
-				<li class="{% if request.path == about or request.path == team or request.path == board or request.path == testimonial %}current{% endif %}" >
+				<li class="{% if request.path == about or request.path == news or request.path == team or request.path == board or request.path == testimonial %}current{% endif %}" >
 					<a>More</a>
 					<ul class="submenu">
+						<!-- <li class="{% if request.path == news %}current{% endif %}"><a href="{% url 'news:news' %}">News</a></li> -->
 						<li><a href="{% url 'about:about' %}">About</a></li>
 						<!-- <li><a href="company-overview.html">Institution's Objectives</a></li> -->
 						<li class="{% if request.path == team %}current{% endif %}"><a href="{% url 'team:team' %}">Committee</a></li>
 									<li class="{% if request.path == board %}current{% endif %}"><a href="{% url 'board:board' %}">Board of Trustees</a></li>
 						<!-- <li><a href="pricing.html">Pricing</a></li> -->
 						<!-- <li><a href="{% url 'faq:faq' %}">FAQ</a></li> -->
-						<li><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
+						<li class="{% if request.path == testimonial %}current{% endif %}"><a href="{% url 'testimonial:testimonial' %}">Testimonials</a></li>
 					</ul>
 				</li>
 				
 			</ul>
 			<!-- <div class="panel-extra">
-				<a href="#" class="main-btn btn-white">
+				<a href="" class="main-btn btn-white">
 					Donate Now <i class="far fa-arrow-right"></i>
 				</a>
 			</div> -->

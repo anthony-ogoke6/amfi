@@ -26,7 +26,7 @@
 				<div class="row justify-content-center">
 					<div class="col-xl-10">
 						<!-- <span class="tagline wow fadeInUp" data-wow-delay="0.3s">AMFI</span> -->
-						<h2 class="title wow fadeInUp" data-wow-delay="0.4s">Augustine Mission Foundation Ikorodu.</h2>
+						<h2 class="title wow fadeInUp" data-wow-delay="0.4s">Augustine Mission Foundation Ikorodu</h2>
 						<!-- <a href="project-1.html" class="main-btn wow fadeInUp" data-wow-delay="0.5s">
 							Explore Projects <i class="far fa-arrow-right"></i>
 						</a> -->
@@ -44,17 +44,69 @@
 				<div class="dot-two"></div>
 			</div>
 		</div>
+		{% if home_image %}
+
+			
 		<div class="hero-images">
+			{% if home_image.0.image_small_1 %}
+
+			<div class="hero-img image-small fancy-bottom wow fadeInLeft" data-wow-delay="0.6s">
+				<img id="herosmall" src="{{ home_image.0.image_small_1.url }}" alt="Image">
+			</div>
+
+			{% else %}
+
 			<div class="hero-img image-small fancy-bottom wow fadeInLeft" data-wow-delay="0.6s">
 				<img id="herosmall" src="{% static 'assets/img/hero/hero-one-small.png' %}" alt="Image">
 			</div>
+			{% endif %}
+
+
+
+
+
+
+			{% if home_image.0.image_big %}
+
+			<div class="hero-img main-img wow fadeInUp" data-wow-delay="0.5s">
+				<img id="bigimage" src="{{ home_image.0.image_big.url }}" alt="Image">
+			</div>
+
+			{% else %}
+
 			<div class="hero-img main-img wow fadeInUp" data-wow-delay="0.5s">
 				<img id="bigimage" src="{% static 'assets/img/hero/hero-one-big.png' %}" alt="Image">
 			</div>
+
+			{% endif %}
+
+
+
+
+
+
+			{% if home_image.0.image_small_2 %}
+
+			<div  class="hero-img image-small fancy-top wow fadeInRight" data-wow-delay="0.7s">
+				<img id="herosmall2" src="{{ home_image.0.image_small_2.url }}" alt="Image">
+			</div>
+
+			{% else %}
+
 			<div  class="hero-img image-small fancy-top wow fadeInRight" data-wow-delay="0.7s">
 				<img id="herosmall2" src="{% static 'assets/img/hero/hero-one-small-2.png' %}" alt="Image">
 			</div>
+
+			{% endif %}
+
+			
+			
+			
+			
+			
 		</div>
+
+		{% endif %}
 	</section>
 	<!--====== Hero Area End ======-->
 
@@ -63,6 +115,72 @@
 	{% endblock %}
 
     {% block category %}
+
+
+
+
+
+    <!--====== Testimonials Start ======-->
+	<section class="testimonials-section section-gap sec-gap">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-8 col-lg-10">
+					<div class="common-heading text-center mb-30">
+						<span class="tagline">
+							<i class="fas fa-plus"></i> WELCOME TO <i class="fas fa-plus"></i>
+							<span class="heading-shadow-text">Join Us Today</span>
+						</span>
+						<h2 class="title">AMFI</h2>
+					</div>
+					<div class="testimonial-boxes">
+						<div class="testimonial-box-two mt-30 wow fadeInUp" data-wow-delay="0s">
+							<!-- <div class="author-img">
+								<img src="assets/img/author-thumbs/07.png" alt="Thumb">
+							</div> -->
+							<div>
+								<h3> Register with us today </h3>
+								<br>
+								<p class="testimonial-desc">Are you tired of looking for where to be trained?</p>
+								<p class="testimonial-desc">Are you tired of not getting your desired skills?</p>
+								<p class="testimonial-desc">Are you talented and looking for a platform for expression?</p>
+								<p class="testimonial-desc">The answer to these questions can be answered at AMFI institute.</p>
+								<p class="testimonial-desc">We offer a wide range of trainings and empowerment programs for affordable prices.</p>
+								<p class="testimonial-desc">Register with us now, our forms are available at the mission statement office.</p>
+								<br>
+								<p class="testimonial-desc">
+									You can contact us via;
+								</p>
+								<br>
+								<p class="testimonial-desc">Facebook - <b> AUGUSTINE MISSION</b></p>
+								<p class="testimonial-desc">Facebook Group Page  - <a href="https://web.facebook.com/groups/753034682728605"><b> AUGUSTINE MISSION FOUNDATION IKORODU - AMFI</b></a></p>
+								<p class="testimonial-desc">Instagram - <a href="https://www.instagram.com/officialamfi/"><b> @officialamfi</b></a></p>
+								<p class="testimonial-desc">Email -<b> amfist1982@gmail.com</b></p>
+								<p class="testimonial-desc">Phone Number/WhatsApp only -<b> 091-6332-6956</b></p>
+								<!-- <div class="author-info">
+									<h5 class="name">Howard A. Guest</h5>
+									<p class="position">Web Developer</p>
+								</div> -->
+							</div>
+							<!-- <div class="rating-wrap">
+								<ul>
+									<li><i class="fas fa-star"></i></li>
+									<li><i class="fas fa-star"></i></li>
+									<li><i class="fas fa-star"></i></li>
+									<li><i class="fas fa-star"></i></li>
+									<li><i class="fas fa-star"></i></li>
+								</ul>
+							</div> -->
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Testimonials End ======-->
+
+
+
     
 
 	<!--====== Categories Section Start ======-->
