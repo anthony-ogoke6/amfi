@@ -11,6 +11,61 @@
 
 
 
+{% block lin %}
+
+
+
+
+
+<style type="text/css">
+	.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+</style>
+
+
+	{% endblock %}
+
+
+
 	{% block nav %}
 
 	{% include 'about/header_about.html' %}
@@ -25,12 +80,12 @@
 		<div class="container">
 			<div class="row align-items-center justify-content-between">
 				<div class="col-lg-8">
-					<h1 class="page-title">Company Overview</h1>
+					<h1 class="page-title">Donation</h1>
 				</div>
 				<div class="col-auto">
 					<ul class="page-breadcrumb">
-						<li><a href="index.html">Home</a></li>
-						<li>Company Overview</li>
+						<li><a href="{% url 'home:home' %}">Home</a></li>
+						<li>Donation</li>
 					</ul>
 				</div>
 			</div>
@@ -41,60 +96,100 @@
 
 	
 {% block donate %}
-	<!--====== Feature Section Start ======-->
-	<section class="feature-section feature-section-one section-gap-extra-bottom">
+
+
+
+
+
+<!--====== Testimonials Start ======-->
+	<section class="testimonials-section section-gap sec-gap">
 		<div class="container">
-			<div class="row justify-content-lg-between justify-content-center align-items-center">
-				<div class="col-xl-4 col-lg-5 col-md-10">
-					<div class="feature-content mb-md-70">
-						<div class="common-heading mb-45">
-							<span class="tagline">
-								<i class="fas fa-plus"></i> What we do
-								<span class="heading-shadow-text">Features</span>
-							</span>
-							<h2 class="title">Why Choose us</h2>
-						</div>
-						<!-- Fancy Icon List -->
-						<div class="fancy-icon-list">
-							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.1s">
-								<div class="icon">
-									<i class="flaticon-debit-card"></i>
-								</div>
-								<div class="content">
-									<h4 class="title">Fast & Easy Payouts</h4>
-									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
-								</div>
-							</div>
-							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.2s">
-								<div class="icon">
-									<i class="flaticon-payment"></i>
-								</div>
-								<div class="content">
-									<h4 class="title">Global Payment Processing</h4>
-									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
-								</div>
-							</div>
-							<div class="fancy-list-item wow fadeInUp" data-wow-delay="0.3s">
-								<div class="icon">
-									<i class="flaticon-wallet-1"></i>
-								</div>
-								<div class="content">
-									<h4 class="title">Many Payment Options</h4>
-									<p>Sed ut perspiciatis unde omnis iste natus voluptatem accusan doloremque</p>
-								</div>
-							</div>
-						</div>
+			<div class="row justify-content-center">
+				<div class="col-xl-8 col-lg-10">
+					<div class="common-heading text-center mb-30">
+						<span class="tagline">
+							<i class="fas fa-plus"></i> Donate  <i class="fas fa-plus"></i>
+							<span class="heading-shadow-text">Sponsor A Trainee Today</span>
+						</span>
+						<h2 class="title">AMFI Donation/Sponsorship</h2>
 					</div>
-				</div>
-				<div class="col-lg-7 col-md-10">
-					<div class="feature-img">
-						<img src="assets/img/feature-img.jpg" alt="">
+					<div class="testimonial-boxes">
+						<div class="testimonial-box-two mt-30 wow fadeInUp" data-wow-delay="0s">
+							<!-- <div class="author-img">
+								<img src="assets/img/author-thumbs/07.png" alt="Thumb">
+							</div> -->
+							<div>
+								<h3> Fashion School </h3>
+								<br>
+								<p class="testimonial-desc">You can help people in need by helping them in achieving their goals in partaking in our Fashion school, so that they can be their own boss or get the Fashion job of their choice.</p>
+								<br>
+								<table class="styled-table">
+								    <thead>
+								        <tr>
+								        	<th>Beneficiary</th>
+								            <th>Form Fee</th>
+								            <th>Tuition Fee</th>
+								            <th>Certificate Fee</th>
+								            <th>Duration</th>
+								        </tr>
+								    </thead>
+								    <tbody>
+								        <tr class="active-row">
+								            <td>Parishioners</td>
+								            <td>2,500 NGN</td>
+								            <td>10,000 NGN</td>
+								            <td>10,000 NGN</td>
+								            <td>9 Months</td>
+								        </tr>
+								        <tr>
+								            <td>Non-Parishioners</td>
+								            <td>2,500 NGN</td>
+								            <td>20,000 NGN</td>
+								            <td>10,000 NGN</td>
+								            <td>9 Months</td>
+								        </tr>
+								        <!-- and so on... -->
+								    </tbody>
+								</table>
+
+								<br>
+								<p class="testimonial-desc">
+									To find out more about AMFI donations/sponsorship, contact us via;
+								</p>
+								<br>
+								<p class="testimonial-desc">Facebook - <b> AUGUSTINE MISSION</b></p>
+								<p class="testimonial-desc">Facebook Group Page  - <a href="https://web.facebook.com/groups/753034682728605"><b> AUGUSTINE MISSION FOUNDATION IKORODU - AMFI</b></a></p>
+								<p class="testimonial-desc">Instagram - <a href="https://www.instagram.com/officialamfi/"><b> @officialamfi</b></a></p>
+								<p class="testimonial-desc">Email -<b> amfist1982@gmail.com</b></p>
+								<p class="testimonial-desc">Phone Number/WhatsApp only -<b> 091-6332-6956</b></p>
+								<!-- <div class="author-info">
+									<h5 class="name">Howard A. Guest</h5>
+									<p class="position">Web Developer</p>
+								</div> -->
+							</div>
+							<!-- <div class="rating-wrap">
+								<ul>
+									<li><i class="fas fa-star"></i></li>
+									<li><i class="fas fa-star"></i></li>
+									<li><i class="fas fa-star"></i></li>
+									<li><i class="fas fa-star"></i></li>
+									<li><i class="fas fa-star"></i></li>
+								</ul>
+							</div> -->
+						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!--====== Feature Section End ======-->
+	<br>
+	<br><br><br><br><br><br><br><br>
+	<!--====== Testimonials End ======-->
+
+
+
+
 {% endblock %}
 
 	

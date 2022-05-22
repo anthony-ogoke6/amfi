@@ -33,6 +33,7 @@ urlpatterns = [
     path('news/', include('news.urls', namespace="news")),
     path('testimonial/', include('testimonial.urls', namespace="testimonial")),
     path('team/', include('team.urls', namespace="team")),
+    path('donate/', include('donate.urls', namespace="donate")),
     path('faq/', include('faq.urls', namespace="faq")),
     path('board/', include('board.urls', namespace="board")),
     path('paystack_confirmation/', enroll_views.processPaystackWebhook, name="paystack_confirmation"),
