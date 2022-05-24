@@ -14,3 +14,5 @@ class NewsAdmin(SummernoteModelAdmin):
 
 
 admin.site.register(News, NewsAdmin)
+
+admin.site.register(Comment)

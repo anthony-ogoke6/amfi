@@ -6,7 +6,7 @@
 
 
 {% block title %}
-{{ block.super }} News
+{{ block.super }} News Details
 {% endblock %}
 
 
@@ -90,105 +90,24 @@
                                     <div class="col-auto">
                                         <div class="related-tags">
                                             <span>Related Tags: </span>
-                                            <a href="#">agency</a>
-                                            <a href="#">funding</a>
-                                            <a href="#">donate</a>
+                                            {% if related %}
+                                            {% for i in related %}
+                                            <a href="i.get_absolute_url">{{i.title}}</a>
+                                            {% endfor %}
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="col-auto">
                                         <div class="social-share">
                                             <span>Share: </span>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://web.facebook.com/groups/753034682728605"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="https://www.instagram.com/officialamfi/"><i class="fab fa-twitter"></i></a>
+                                            <!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
                                         </div>
                                     </div>
                                 </div>
                                 
-                                <div class="comments-template">
-                                    <h4 class="template-title">Peoples Comments</h4>
-                                    <ul class="comments-list">
-                                        <li>
-                                            <div class="comment-body">
-                                                <div class="commentator-img">
-                                                    <img src="assets/img/author-thumbs/commet-01.jpg" alt="Author">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <h5 class="commentator">John F. Medina</h5>
-                                                    <span class="date">25 May 2021</span>
-                                                    <p>
-                                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium totam rem aperiam
-                                                    </p>
-                                                    <a href="#" class="reply-link">Reply <i class="far fa-long-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                            <ul class="children">
-                                                <li>
-                                                    <div class="comment-body">
-                                                        <div class="commentator-img">
-                                                            <img src="assets/img/author-thumbs/commet-02.jpg" alt="Author">
-                                                        </div>
-                                                        <div class="comment-content">
-                                                            <h5 class="commentator">Jeffrey T. Kelly</h5>
-                                                            <span class="date">25 May 2021</span>
-                                                            <p>
-                                                                Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-                                                            </p>
-                                                            <a href="#" class="reply-link">Reply <i class="far fa-long-arrow-right"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <div class="comment-body">
-                                                <div class="commentator-img">
-                                                    <img src="assets/img/author-thumbs/commet-03.jpg" alt="Author">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <h5 class="commentator">Richard B. Zellmer</h5>
-                                                    <span class="date">25 May 2021</span>
-                                                    <p>
-                                                        Unde omnis iste natus error sit voluptate accusantium dolore mque laudantium totam rem aperiam
-                                                    </p>
-                                                    <a href="#" class="reply-link">Reply <i class="far fa-long-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="comment-form">
-                                        <h4 class="template-title">Leave A Message</h4>
-                                        <form action="#">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="input-field mb-20">
-                                                        <input type="text" placeholder="Full Name">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input-field mb-20">
-                                                        <input type="text" placeholder="Email Address">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="input-field mb-20">
-                                                        <input type="text" placeholder="Website URL">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="input-field mb-30">
-                                                        <textarea placeholder="Write Message"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="input-field">
-                                                        <button class="main-btn">Send Comments <i class="far fa-arrow-right"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                               <!--  insert the comment section here -->
                             </div>
                         </div>
                     </div>
@@ -197,79 +116,55 @@
 					<div class="blog-sidebar">
 						<div class="widget search-widget">
 							<h4 class="widget-title">Search Here</h4>
-							<form action="#">
-								<input type="text" placeholder="Keywoards">
+							<form method="Post" action="{% url 'news:news'  %}">
+								{% csrf_token %}
+								<input type="text" placeholder="Search news..." name="q">
 								<button><i class="fas fa-search"></i></button>
 							</form>
 						</div>
 						<div class="widget category-widget">
 							<h4 class="widget-title">Category</h4>
 							<ul>
-								<li><a href="#">Business (5) <i class="far fa-angle-right"></i></a></li>
-								<li><a href="#">Construction (7) <i class="far fa-angle-right"></i></a></li>
-								<li><a href="#">Creative (9) <i class="far fa-angle-right"></i></a></li>
-								<li><a href="#">International (2) <i class="far fa-angle-right"></i></a></li>
-								<li><a href="#">Management (5) <i class="far fa-angle-right"></i></a></li>
-								<li><a href="#">Technology (2) <i class="far fa-angle-right"></i></a></li>
-								<li><a href="#">Uncategorized (3) <i class="far fa-angle-right"></i></a></li>
+								<li><a href="{% url 'training:training' %}">Training/Empowerment <i class="far fa-angle-right"></i></a></li>
+								<li><a href="{% url 'projects:projects' %}">Project <i class="far fa-angle-right"></i></a></li>
+								<li><a href="{% url 'team:team' %}">Committee <i class="far fa-angle-right"></i></a></li>
+								<li><a href="{% url 'board:board' %}">Board of Trustee <i class="far fa-angle-right"></i></a></li>
 							</ul>
 						</div>
 						<div class="widget latest-blog-widget">
-							<h4 class="widget-title">Latest News</h4>
+							<h4 class="widget-title">Advertise with us</h4>
 							<ul>
 								<li>
 									<div class="thumb">
-										<img src="assets/img/latest-news/widget-01.jpg" alt="Image">
+										<img src="{% static 'assets/img/project/advert.png' %}" alt="Image">
 									</div>
 									<div class="desc">
-										<h6><a href="news-details.html">Build Seamless Spreads Import Experience</a></h6>
+										<h6><a>Place Adverts Here</a></h6>
 										<span class="date"><i class="far fa-calendar-alt"></i>25 May 2021</span>
 									</div>
 								</li>
-								<li>
-									<div class="thumb">
-										<img src="assets/img/latest-news/widget-02.jpg" alt="Image">
-									</div>
-									<div class="desc">
-										<h6><a href="news-details.html">Creating Online Environ Work Well Older</a></h6>
-										<span class="date"><i class="far fa-calendar-alt"></i>25 May 2021</span>
-									</div>
-								</li>
-								<li>
-									<div class="thumb">
-										<img src="assets/img/latest-news/widget-03.jpg" alt="Image">
-									</div>
-									<div class="desc">
-										<h6><a href="news-details.html">Signs Website Feelore Haunted House</a></h6>
-										<span class="date"><i class="far fa-calendar-alt"></i>25 May 2021</span>
-									</div>
-								</li>
+								
 							</ul>
 						</div>
 						<div class="widget tags-widget">
-							<h4 class="widget-title">Popular Tags</h4>
+							<h4 class="widget-title">Explore</h4>
 							<ul>
-								<li><a href="#">Lawyer</a></li>
-								<li><a href="#">Crowd</a></li>
-								<li><a href="#">Funding</a></li>
-								<li><a href="#">consultancy</a></li>
-								<li><a href="#">Law farms</a></li>
-								<li><a href="#">management</a></li>
-								<li><a href="#">planning</a></li>
+								<li><a href="{% url 'training:training' %}">Training/Empowerment</a></li>
+								<li><a href="{% url 'projects:projects' %}">Project</a></li>
 							</ul>
 						</div>
 						<div class="widget cta-widget">
 							<div class="cta-content">
-								<h4 class="title">Get Free <br> Consultations</h4>
-								<span class="subtitle">Special advisors</span>
+								<h4 class="title">Advertise <br> Here</h4>
+								<span class="subtitle">Visit the mission statement office for more details</span>
 								<p>
-									Quis autem vel eum iure repreh ende
+									Visit the mission statement office for more details
 								</p>
-								<a href="#" class="cta-button">Get a Quoate</a>
+								<a href="{% url 'contact:contact' %}" class="cta-button">Contact us</a>
 
 
 								<div class="cta-img">
-									<img src="assets/img/cta/cta-widget.jpg" alt="Image">
+									<img src="{% static 'assets/img/project/advert.png' %}" alt="Image">
 								</div>
 							</div>
 						</div>
