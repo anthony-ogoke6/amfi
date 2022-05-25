@@ -43,6 +43,20 @@
 
 
 {% block training %}
+<br><br><br>
+                <div class="col-lg-4">
+                    <div class="blog-sidebar">
+                        <div class="widget search-widget">
+                            <h4 class="widget-title">Search Here</h4>
+                            <form method="Post" action="{% url 'training:training' %}">
+                                {% csrf_token %}
+                                <input type="text" placeholder="Search training..." name="q">
+                                <button><i class="fas fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
 	<!--====== Event area Start ======-->
 	<section class="event-area section-gap-extra-bottom">
 		<div class="container">
@@ -99,6 +113,9 @@
 		</div>
 	</section>
 	<!--====== Event area End ======-->
+
+
+
 {% endblock %}
 
 	

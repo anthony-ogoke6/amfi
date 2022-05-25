@@ -35,7 +35,24 @@ logger = logging.getLogger(__name__)
 
 
 def training(request):
-	training = Training.objects.all()
+	training = Training.published.all()
+	try:
+		query = request.POST.get('q')
+	except:
+		query = None
+
+	if query != None:
+		training = Training.published.filter(
+			Q(title__icontains=query)|
+			Q(body__icontains=query)|
+			Q(location__icontains=query)|
+			Q(facilitator__icontains=query)|
+			Q(category__icontains=query)
+		).distinct()
+	else:
+		pass
+
+
 	context = {
         'training': training,
         }

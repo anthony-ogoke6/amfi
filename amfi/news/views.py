@@ -38,7 +38,7 @@ logger = logging.getLogger(__name__)
 def news(request):
 	news = News.published.all()
 	try:
-		query = request.GET.get('q')
+		query = request.POST.get('q')
 	except:
 		query = None
 	
@@ -73,7 +73,7 @@ def news_details(request, id, slug):
 	news = get_object_or_404(News, id=id, slug=slug)
 	comments = Comment.objects.filter(post=news, reply=None).order_by('-id')
 	q = news.title
-	search = request.GET.get('q')
+	search = request.POST.get('q')
 	if search:
 		news = News.published.filter(
 			Q(title__icontains=search)|
