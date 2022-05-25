@@ -35,23 +35,33 @@ logger = logging.getLogger(__name__)
 
 
 def training(request):
-	training = Training.published.all()
-	try:
-		query = request.POST.get('q')
-	except:
-		query = None
+	if request.method == 'POST':
+		try:
+			query = request.POST.get('q')
+		except:
+			query = None
+		if query != None:
+			try:
+				training = Training.published.filter(
+					Q(title__icontains=query)|
+					Q(body__icontains=query)|
+					Q(location__icontains=query)|
+					Q(facilitator__icontains=query)|
+					Q(category__icontains=query)
+				).distinct()
+			except:
+				messages.success(request, "Search term not found", extra_tags='error')
+				return render(request, 'training/events.html')
+			context = {
+			'training': training,
+			}
+			return render(request, 'training/events.html', context)
+		else:
+			messages.success(request, "Search term not found", extra_tags='error')
+			return render(request, 'training/events.html')
 
-	if query != None:
-		training = Training.published.filter(
-			Q(title__icontains=query)|
-			Q(body__icontains=query)|
-			Q(location__icontains=query)|
-			Q(facilitator__icontains=query)|
-			Q(category__icontains=query)
-		).distinct()
 	else:
-		pass
-
+		training = Training.published.all()
 
 	context = {
         'training': training,

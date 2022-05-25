@@ -32,29 +32,9 @@ class Training(models.Model):
         ('published','Published'),
     )
 
-    TRAINING = (
-        ('Computer Training (Desktop Publishing)','Computer Training (Desktop Publishing)'),
-        ('Musical Instruments (Piano/ Guitar)','Musical Instruments (Piano/ Guitar)'),
-        ('Photography And Video Editing','Photography And Video Editing'),
-        ('Communication Management','Communication Management'),
-        ('Web Designing And Hosting','Web Designing And Hosting'),
-        ('Insurance Administration','Insurance Administration'),
-        ('Catering And Small Chops','Catering And Small Chops'),
-        ('Project Management','Project Management'),
-        ('Fashion Designing','Fashion Designing'),
-        ('Gele Tying','Gele Tying'),
-        ('Hair Making','Hair Making'),
-        ('Communication Management','Communication Management'),
-        ('Make Over','Make Over'),
-        ('Craft','Craft'),
-        ('Sound Engineering','Sound Engineering'),
-        ('Acting/Dancing','Acting/Dancing'),
-        ('CV Clinic','CV Clinic'),
-    )
-
     status                  =       models.CharField(max_length=10, choices=BLANK_CHOICE_DASH + list(STATUS_CHOICES))
     category               	=       models.CharField(max_length=200, blank=True, null=True)
-    title          =       models.CharField(max_length=1000, blank=True, null=True, choices=BLANK_CHOICE_DASH + list(TRAINING))
+    title                =       models.CharField(max_length=400, blank=True, null=True)
     slug                	=       models.SlugField(max_length=200, blank=True, null=True)
     amount                  =       models.PositiveIntegerField(blank=True, null=True)
     location                =       models.CharField(max_length=200, blank=True, null=True)
