@@ -9,9 +9,9 @@
 
 {% block tweet %}
 	<meta property="og:url"           content="{{ news.get_absolute_url }}" />
-	<meta property="og:type"          content="website" />
+	<meta property="og:type"          content="website"/>
 	<meta property="og:title"         content="{{ news.title }}" />
-	<meta property="og:description"   content="{{ news.body }}" />
+	<meta property="og:description"   content="{{ news.body|slice:':250' }}" />
 	<meta property="og:image"         content="{{ news.image_770_by_450.url }}" />
 {% endblock %}
 
@@ -135,7 +135,7 @@
 											</div>
                                             <!-- <a href="https://web.facebook.com/groups/753034682728605"><i class="fab fa-facebook-f"></i></a> -->
                                             <!-- <a href="https://www.instagram.com/officialamfi/"><i class="fab fa-twitter"></i></a> -->
-                                            <a href="https://www.instagram.com/officialamfi/"><i class="fab fa-instagram"></i></a>
+                                            <!-- <a href="https://www.instagram.com/officialamfi/"><i class="fab fa-instagram"></i></a> -->
                                         </div>
                                     </div>
                                 </div>
