@@ -11,7 +11,7 @@
 	<meta property="og:url"           content="{{ news.get_absolute_url }}" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="{{ news.title }}" />
-	<!-- <meta property="og:description"   content="{{ news.body|safe|slice:':250' }}" /> -->
+	<meta property="og:description"   content="{{ news.body|safe }}" />
 	<meta property="og:image"         content="{{ news.image_770_by_450.url }}" />
 {% endblock %}
 

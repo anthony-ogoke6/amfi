@@ -373,22 +373,7 @@
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId            : 'your-app-id',
-	      autoLogAppEvents : true,
-	      xfbml            : true,
-	      version          : 'v14.0'
-	    });
-	    FB.ui({
-		  method: 'share',
-		  href: 'https://developers.facebook.com/docs/'
-		}, function(response){});
-		  };
-</script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-    
+
 
 
 	{% if messages %}
