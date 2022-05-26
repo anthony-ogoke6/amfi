@@ -55,5 +55,5 @@ class Team(models.Model):
 
 @receiver(pre_save, sender=Team)
 def pre_save_slug1(sender, **kwargs):
-    slug = slugify(kwargs['instance'].title)
+    slug = slugify(kwargs['instance'].full_name)
     kwargs['instance'].slug = slug
