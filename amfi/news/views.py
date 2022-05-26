@@ -71,6 +71,7 @@ def news_details(request, id, slug):
 	news_increament.save()
 	related = []
 	news = get_object_or_404(News, id=id, slug=slug)
+	url = f"https://www.amfiinstitute.com/media{news.image_770_by_450.url}"
 	comments = Comment.objects.filter(post=news, reply=None).order_by('-id')
 	q = news.title
 	search = request.POST.get('q')
@@ -181,6 +182,7 @@ def news_details(request, id, slug):
 	'news': news,
 	'related': related,
 	'comments': comments,
+	'url':url,
 	}
 
 	return render(request, 'news/news-details.html', context)

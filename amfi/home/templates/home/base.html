@@ -9,6 +9,9 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	{% block tweet %}
+
+	{% endblock %}
 
 	<!--====== Title ======-->
 	<title>{% block title %} AMFI || {% endblock %}</title>
@@ -369,6 +372,23 @@
 	<script src="{% static 'assets/js/main.js' %}"></script>
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId            : 'your-app-id',
+	      autoLogAppEvents : true,
+	      xfbml            : true,
+	      version          : 'v14.0'
+	    });
+	    FB.ui({
+		  method: 'share',
+		  href: 'https://developers.facebook.com/docs/'
+		}, function(response){});
+		  };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    
 
 
 	{% if messages %}
