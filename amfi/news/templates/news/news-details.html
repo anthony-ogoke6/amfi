@@ -67,7 +67,14 @@
 	{% block blog %}
 
 
-	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 
 	<!--====== Blog Details Area Start ======-->
@@ -106,14 +113,17 @@
                             <div class="post-footer mt-40">
                                 <div class="row justify-content-between">
                                     <div class="col-auto">
+                                    	{% if related %}
                                         <div class="related-tags">
+
                                             <span>Related Tags: </span>
-                                            {% if related %}
+                                            
                                             {% for i in related %}
                                             <a href="i.get_absolute_url">{{i.title}}</a>
                                             {% endfor %}
-                                            {% endif %}
+                                            
                                         </div>
+                                        {% endif %}
                                     </div>
                                     <div class="col-auto">
                                         <div class="social-share">
@@ -199,14 +209,7 @@
 
 
 
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-	fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+	
 
 	<!-- Your share button code -->
 	
